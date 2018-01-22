@@ -1235,12 +1235,12 @@ int smithy(int currentPlayer, struct gameState *state, int handPos){ //draw 3 ca
 			
       //discard card from hand
       discardCard(handPos, currentPlayer, state, 0);
-      return 0;
+      return -1;
 }
 
 int adventurer(int drawntreasure, struct gameState *state, int currentPlayer){
     while(drawntreasure<2){
-        if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
+        if (state->deckCount[currentPlayer] <2){//if the deck is empty we need to shuffle discard and add to deck
             shuffle(currentPlayer, state);
         }
         drawCard(currentPlayer, state);
@@ -1265,7 +1265,7 @@ int village(int currentPlayer, struct gameState *state, int handPos){
     drawCard(currentPlayer, state);
         
     //+2 Actions
-    state->numActions = state->numActions + 2;
+    state->numActions = state->numActions + 3;
         
     //discard played card from hand
     discardCard(handPos, currentPlayer, state, 0);
@@ -1276,7 +1276,7 @@ int baron(int currentPlayer, struct gameState *state, int handPos, int choice1){
     state->numBuys++;//Increase buys by 1!
       if (choice1 > 0){//Boolean true or going to discard an estate
 	int p = 0;//Iterator for hand!
-	int card_not_discarded = 1;//Flag for discard set!
+	int card_not_discarded = 0;//Flag for discard set!
 	while(card_not_discarded){
 	  if (state->hand[currentPlayer][p] == estate){//Found an estate card!
 	    state->coins += 4;//Add 4 coins to the amount of coins
