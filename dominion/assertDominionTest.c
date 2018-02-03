@@ -4,7 +4,7 @@
 //Output: 1 if exit is requested 0 if continue.
 //You can place this into an if(asserDom(x,y)){return 1}
 
-bool assertGameStateDom(bool, string, struct *gameState, struct *gameState){
+int assertGameStateDom(int, string, struct *gameState, struct *gameState){
   if(!assertion){
     fprintf(stderr,"Errormessage: %s", MSG);
     cout << "\nAssertion Failed:" << MSG;
@@ -17,12 +17,12 @@ bool assertGameStateDom(bool, string, struct *gameState, struct *gameState){
     char choice;
     cin >> choice;
     if(choice == Y || choice == y){
-      return true;
+      return 1;
     }
-    return false;
+    return 0;
 }
 
-bool assertStandardDom(bool assertion, string MSG){
+int assertStandardDom(int assertion, string MSG){
   if(!assertion){
     fprintf(stderr,"Errormessage: %s", MSG);
     cout << "Assertion Failed:" << MSG;
@@ -30,7 +30,7 @@ bool assertStandardDom(bool assertion, string MSG){
     char choice;
     cin >> choice;
     if(choice == Y || choice == y){
-      return true;
+      return 1;
     }
-    return false;
+    return 0;
 }
