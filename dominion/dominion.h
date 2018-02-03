@@ -78,8 +78,8 @@ struct gameState {
 
 struct gameState* newGame();
 int smithy_effect(int currentPlayer, struct gameState *state, int handPos); //
-int adventurerEffect_effect(int drawntreasure, struct gameState *state, int currentPlayer); //
-int villageEffect_effect(int currentPlayer, struct gameState *state, int handPos); //
+int adventurer_effect(int drawntreasure, struct gameState *state, int currentPlayer); //
+int village_effect(int currentPlayer, struct gameState *state, int handPos); //
 int baron_effect(int currentPlayer, struct gameState *state, int handPos, int choice1); //
 int council_room_effect(int currentPlayer, struct gameState *state, int handPos); //
 
@@ -93,11 +93,6 @@ int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
    are in fact (different) kingdom cards, and that numPlayers is valid.
 
 Cards not in game should initialize supply position to -1 */
-int smithy_effect(int currentPlayer, struct gameState *state, int handPos); //
-int adventurerEffect_effect(int drawntreasure, struct gameState *state, int currentPlayer); //
-int villageEffect_effect(int currentPlayer, struct gameState *state, int handPos); //
-int baron_effect(int currentPlayer, struct gameState *state, int handPos, int choice1); //
-int council_room_effect(int currentPlayer, struct gameState *state, int handPos); //
 
 int shuffle(int player, struct gameState *state);
 /* Assumes all cards are now in deck array (or hand/played):  discard is
