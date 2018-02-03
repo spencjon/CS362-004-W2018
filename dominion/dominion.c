@@ -656,8 +656,8 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
   int tributeRevealedCards[2] = {-1, -1};
   int temphand[MAX_HAND];// moved above the if statement
   int drawntreasure=0;
-  int cardDrawn;
-  int z = 0;// this is the counter for the temp hand
+  //int cardDrawn;
+  //int z = 0;// this is the counter for the temp hand
   if (nextPlayer > (state->numPlayers - 1)){
     nextPlayer = 0;
   }
@@ -671,7 +671,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
     case council_room:
 
-      return council_room_effect();
+      return council_room_effect(currentPlayer, state, handPos);
 
     case feast:
       //gain card with cost up to 5
@@ -1227,10 +1227,11 @@ int updateCoins(int player, struct gameState *state, int bonus)
 }
 
 int smithy_effect(int currentPlayer, struct gameState *state, int handPos){ //draw 3 cards
-    for (int i = 0; i < 3; i++)
-	{
-	  drawCard(currentPlayer, state);
-	}
+  int i;
+    for (i = 0; i < 3; i++)
+	   {
+	      drawCard(currentPlayer, state);
+	   }
 
       //discard card from hand
       discardCard(handPos, currentPlayer, state, 0);
@@ -1238,6 +1239,8 @@ int smithy_effect(int currentPlayer, struct gameState *state, int handPos){ //dr
 }
 
 int adventurer_effect(int drawntreasure, struct gameState *state, int currentPlayer){
+    int cardDrawn;
+    int z = 0;
     while(drawntreasure<2){
         if (state->deckCount[currentPlayer] <2){//if the deck is empty we need to shuffle discard and add to deck
             shuffle(currentPlayer, state);
@@ -1323,16 +1326,17 @@ int baron_effect(int currentPlayer, struct gameState *state, int handPos, int ch
 
 int council_room_effect(int currentPlayer, struct gameState *state, int handPos){
     //+4 Cards
-      for (int i = 0; i < 4; i++)
-	{
-	  drawCard(currentPlayer, state);
-	}
+    int i;
+    for (i = 0; i < 4; i++)
+      {
+	       drawCard(currentPlayer, state);
+	    }
 
       //+1 Buy
       state->numBuys++;
 
       //Each other player draws a card
-      for (int i = 0; i < state->numPlayers; i++)
+      for (i = 0; i < state->numPlayers; i++)
 	{
 	  if ( i != currentPlayer )
 	    {
