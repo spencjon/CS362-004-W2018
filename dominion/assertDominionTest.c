@@ -4,8 +4,9 @@
 //Output: 1 if exit is requested 0 if continue.
 //You can place this into an if(asserDom(x,y)){return 1}
 
-int assertGameStateDom(int, string, struct *gameState, struct *gameState){
-  if(!assertion){
+int assertGameStateDom(int, string, struct *gameState, struct *gameState)
+  {
+    if(!assertion){
     fprintf(stderr,"Errormessage: %s", MSG);
     cout << "\nAssertion Failed:" << MSG;
     cout << "\n \n*************PRE*******************"
