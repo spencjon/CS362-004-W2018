@@ -5,10 +5,11 @@
 #include <assert.h>
 #include "rngs.h"
 
+
 #ifndef _ASSERTDOMINIONTEST_H
 #define _ASSERTDOMINIONTEST_H
 
 
-bool assertStandardDom(bool, string);
-bool assertGameStateDom(bool, string, struct gameState, struct gameState);
+int assertStandardDom(int, string);
+int assertGameStateDom(int, string, struct gameState, struct gameState);
 #endif
