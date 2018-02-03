@@ -85,7 +85,7 @@ int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
 		   struct gameState *state);
 /* Responsible for initializing all supplies, and shuffling deck and
    drawing starting hands for all players.  Check that 10 cards selected
-   are in fact (different) kingdom cards, and that numPlayers is valid. 
+   are in fact (different) kingdom cards, and that numPlayers is valid.
 
 Cards not in game should initialize supply position to -1 */
 
@@ -113,7 +113,7 @@ int fullDeckCount(int player, int card, struct gameState *state);
 /* Here deck = hand + discard + deck */
 
 int whoseTurn(struct gameState *state);
-
+_DOMINION_H
 int endTurn(struct gameState *state);
 /* Must do phase C and advance to next player; do not advance whose turn
    if game is over */
