@@ -128,10 +128,10 @@ int getWinners(int players[MAX_PLAYERS], struct gameState *state);
 /* Set array position of each player who won (remember ties!) to
    1, others to 0 */
 
-int smithy(int currentPlayer, struct gameState *state, int handPos); //
-int adventurer(int drawntreasure, struct gameState *state, int currentPlayer); //
-int village(int currentPlayer, struct gameState *state, int handPos); //
-int baron(int currentPlayer, struct gameState *state, int handPos, int choice1); //
-int council_room(int currentPlayer, struct gameState *state, int handPos); //
+int smithy_effect(int currentPlayer, struct gameState *state, int handPos); //
+int adventurerEffect_effect(int drawntreasure, struct gameState *state, int currentPlayer); //
+int villageEffect_effect(int currentPlayer, struct gameState *state, int handPos); //
+int baron_effect(int currentPlayer, struct gameState *state, int handPos, int choice1); //
+int council_room_effect(int currentPlayer, struct gameState *state, int handPos); //
 
 #endif
