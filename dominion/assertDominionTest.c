@@ -35,7 +35,6 @@ bool assertGameStateDom(bool assertion, string MSG, struct gameState *pre, struc
   {
     if(!assertion)
     {
-      fprintf(stderr,"Errormessage: %s", MSG);
       cout << "\nAssertion Failed:" << MSG;
       cout << "\n \n*************PRE*******************";
       printGameState(pre);
@@ -59,7 +58,6 @@ bool assertGameStateDom(bool assertion, string MSG, struct gameState *pre, struc
 bool assertStandardDom(bool assertion, string MSG)
 {
   if(!assertion){
-    fprintf(stderr,"Errormessage: %s", MSG);
     cout << "Assertion Failed:" << MSG;
     cout << "Exit? (Y/N)";
     char choice;
