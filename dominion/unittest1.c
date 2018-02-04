@@ -85,18 +85,21 @@ int main () {
       	for (handCount = 0; handCount < 5; handCount++)
         {
       	  memset(&G, 23, sizeof(struct gameState));
-      	  r = initializeGame(2, k, 1, &G);
+      	  initializeGame(2, k, 1, &G);
       	  G.deckCount[p] = deckCount;
       	  memset(G.deck[p], 0, sizeof(int) * deckCount);
       	  G.discardCount[p] = discardCount;
       	  memset(G.discard[p], 0, sizeof(int) * discardCount);
       	  G.handCount[p] = handCount;
       	  memset(G.hand[p], 0, sizeof(int) * handCount);
-      	  checkDiscardCard(handCount, 0, p, &G);
+      	  if(checkDiscardCard(handCount, 0, p, &G))
+          {
+              return 1;
+          }
       	}
       }
     }
   }
 
-  return 0;
+  return 1;
 }
