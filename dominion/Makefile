@@ -19,7 +19,7 @@ testBuyCard: testDrawCard.c dominion.o rngs.o
 	g++ -o testDrawCard -g  testDrawCard.c dominion.o rngs.o $(CFLAGS)
 
 testDiscardCard: unittest1.c assertDominionTest.c dominion.o rngs.o
-	g++ -0 testDiscardCard -g unittest1.c assertDominionTest.c dominion.o rngs.o $(CFLAGS)
+	g++ -o testDiscardCard -g unittest1.c assertDominionTest.c dominion.o rngs.o $(CFLAGS)
 
 testAll: dominion.o testSuite.c
 	g++ -o testSuite testSuite.c -g  dominion.o rngs.o $(CFLAGS)
