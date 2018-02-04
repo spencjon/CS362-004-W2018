@@ -59,7 +59,9 @@ int checkDiscardCard(int hp, int tf, int p, struct gameState *post) {
   {
     return 1;
   }
+  printf("Check on current game discard has completed successfully...");
   return 0;
+
 }
 
 
@@ -76,7 +78,7 @@ int main () {
 
 
   printf ("SIMPLE FIXED TESTS.\n");
-  for (p = 0; p < 2; p++)
+  for (p = 0; p < 4; p++)
   {
     for (deckCount = 0; deckCount < 5; deckCount++)
     {
@@ -92,16 +94,17 @@ int main () {
       	  memset(G.discard[p], 0, sizeof(int) * discardCount);
       	  G.handCount[p] = handCount;
       	  memset(G.hand[p], 0, sizeof(int) * handCount);
-          printf("Testing");
           if(checkDiscardCard(handCount, 0, p, &G))
           {
-              printf("Tests Failed, requeted return");
+              printf("\n****ERROR: Tests Failed, requeted return****\n");
               return 1;
           }
       	}
       }
     }
+    printf("\nTest for p = %i has passed\n", p);
   }
+  printf("\nAll tests have passed\n");
 
   return 1;
 }
