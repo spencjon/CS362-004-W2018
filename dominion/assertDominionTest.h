@@ -12,8 +12,8 @@ using namespace std;
 #define _ASSERTDOMINIONTEST_H
 
 
-bool assertStandardDom(int, string);
-bool assertGameStateDom(int, string, struct gameState*, struct gameState*);
+bool assertStandardDom(bool, string);
+bool assertGameStateDom(bool, string, struct gameState*, struct gameState*);
 void printGameState(struct gameState *);
 
 #endif
