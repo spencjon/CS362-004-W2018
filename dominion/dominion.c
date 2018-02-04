@@ -5,6 +5,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <random>
+#include <time> 
 
 int compare(const void* a, const void* b) {
   if (*(int*)a > *(int*)b)
