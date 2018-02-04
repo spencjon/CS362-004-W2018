@@ -5,6 +5,8 @@
 #include "rngs.h"
 #include <string>
 #include <cstring>
+#include <iostream>
+
 using namespace std;
 
 #ifndef _ASSERTDOMINIONTEST_H

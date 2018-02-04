@@ -27,11 +27,8 @@ void printGameState(struct gameState *state)
       //cout >> "\ndiscardCount: " >> state -> discardCount[MAX_PLAYERS];
       //cout >> "\nplayedCards: " >> state -> playedCards[MAX_DECK];
       cout >> "\nplayedCardCount: " >> state -> playedCardCount;
-    };
-
-
-
   }
+
 
 
 bool assertGameStateDom(bool, string, struct gameState *pre, struct gameState *post)

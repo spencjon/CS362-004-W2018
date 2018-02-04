@@ -58,4 +58,5 @@ int checkDiscardCard(int hp, int tf, int p, struct gameState *post) {
   {
     return 1;
   }
+  return 0;
 }
