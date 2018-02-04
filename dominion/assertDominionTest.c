@@ -9,32 +9,38 @@
 void printGameState(struct gameState *state)
   {
 
+    printf("\nNumPlayers: %i", state ->numPlayers);
+      /*
       cout << "\nnumPlayers:"  << state -> numPlayers ; //number of players
-      //cout << "\nsupplyCount: " << state -> state -> supplyCount[treasure_map+1];  //this is the amount of a specific type of card given a specific number.
-      //cout << "\nembargoTokens: " << state -> embargoTokens[treasure_map+1];
+      cout << "\nsupplyCount: " << state -> state -> supplyCount[treasure_map+1];  //this is the amount of a specific type of card given a specific number.
+      cout << "\nembargoTokens: " << state -> embargoTokens[treasure_map+1];
       cout << "\noutpostPlayed: " << state -> outpostPlayed;
       cout << "\noutpostTurn: " << state -> outpostTurn;
       cout << "\nwhoseTurn: " << state -> whoseTurn;
       cout << "\nphase: " << state -> phase;
-      cout << "\nnumActions: " << state -> numActions; /* Starts at 1 each turn */
-      cout << "\ncoins: " << state -> coins; /* Use as you see fit! */
-      cout << "\nnumBuys: " << state -> numBuys; /* Starts at 1 each turn */
-      //cout << "\nhand: " << state -> hand[MAX_PLAYERS][MAX_HAND];
-      //cout << "\nhandCount: " << state -> handCount[MAX_PLAYERS];
-      //cout << "\ndeck: " << state -> deck[MAX_PLAYERS][MAX_DECK];
-      //cout << "\ndeckCount: " << state -> deckCount[MAX_PLAYERS];
-      //cout << "\ndiscard: " << state -> discard[MAX_PLAYERS][MAX_DECK];
-      //cout << "\ndiscardCount: " << state -> discardCount[MAX_PLAYERS];
-      //cout << "\nplayedCards: " << state -> playedCards[MAX_DECK];
+      cout << "\nnumActions: " << state -> numActions; // Starts at 1 each turn 
+      cout << "\ncoins: " << state -> coins; // Use as you see fit! 
+      cout << "\nnumBuys: " << state -> numBuys; // Starts at 1 each turn 
+      cout << "\nhand: " << state -> hand[MAX_PLAYERS][MAX_HAND];
+      cout << "\nhandCount: " << state -> handCount[MAX_PLAYERS];
+      cout << "\ndeck: " << state -> deck[MAX_PLAYERS][MAX_DECK];
+      cout << "\ndeckCount: " << state -> deckCount[MAX_PLAYERS];
+      cout << "\ndiscard: " << state -> discard[MAX_PLAYERS][MAX_DECK];
+      cout << "\ndiscardCount: " << state -> discardCount[MAX_PLAYERS];
+      cout << "\nplayedCards: " << state -> playedCards[MAX_DECK];
       cout << "\nplayedCardCount: " << state -> playedCardCount;
+      */
   }
 
 
 
-bool assertGameStateDom(bool assertion, string MSG, struct gameState *pre, struct gameState *post)
+int assertGameStateDom(int assertion, char* MSG, struct gameState *pre, struct gameState *post)
   {
+    char choice[1];
     if(!assertion)
     {
+      printf("Assertion Failed: %s \n", MSG);
+      /*
       cout << "\nAssertion Failed:" << MSG;
       cout << "\n \n*************PRE*******************";
       printGameState(pre);
@@ -44,7 +50,11 @@ bool assertGameStateDom(bool assertion, string MSG, struct gameState *pre, struc
       cout << "Exit? (Y/N)";
       char choice;
       cin >> choice;
-      if(choice == 'Y' || choice == 'y'){
+      */
+      printf("Exit? (Y/n): ");
+      scanf("%s", choice);
+      printf("\n");
+      if(choice[0] == 'Y' || choice[0] == 'y'){
         return 1;
       }
       else
@@ -55,14 +65,22 @@ bool assertGameStateDom(bool assertion, string MSG, struct gameState *pre, struc
     return 0;
 }
 
-bool assertStandardDom(bool assertion, string MSG)
+int assertStandardDom(int assertion, char* MSG)
 {
+  char choice[1];
   if(!assertion){
+    printf("Exit? (Y/n): ");
+    scanf("%s", choice);
+    printf("\n");
+
+
+    /*
     cout << "Assertion Failed:" << MSG;
     cout << "Exit? (Y/N)";
     char choice;
     cin >> choice;
-    if(choice == 'Y' || choice == 'y'){
+    */
+    if(choice[0] == 'Y' || choice[0] == 'y'){
       return 1;
     }
     else
