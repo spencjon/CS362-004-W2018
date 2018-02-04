@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
+#include <random>
 
 int compare(const void* a, const void* b) {
   if (*(int*)a > *(int*)b)
@@ -41,8 +42,7 @@ int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
   int j;
   int it;
   //set up random number generator
-  SelectStream(1);
-  PutSeed((long)randomSeed);
+  srand(time(NULL));
 
   //check number of players
   if (numPlayers > MAX_PLAYERS || numPlayers < 2)
@@ -212,7 +212,7 @@ int shuffle(int player, struct gameState *state) {
   /* SORT CARDS IN DECK TO ENSURE DETERMINISM! */
 
   while (state->deckCount[player] > 0) {
-    card = floor(Random() * state->deckCount[player]);
+    card = rand() % state->deckCount[player];
     newDeck[newDeckPos] = state->deck[player][card];
     newDeckPos++;
     for (i = card; i < state->deckCount[player]-1; i++) {
