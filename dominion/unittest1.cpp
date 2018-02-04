@@ -2,10 +2,6 @@
 #include "dominion.h"
 #include "dominion_helpers.h"
 #include "assertDominionTest.h"
-#include <string.h>
-#include <stdio.h>
-#include <assert.h>
-#include <time.h>
 #include "rngs.h"
 #include <string>
 #include <cstring>
