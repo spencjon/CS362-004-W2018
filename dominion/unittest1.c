@@ -92,7 +92,7 @@ int main () {
       	  memset(G.discard[p], 0, sizeof(int) * discardCount);
       	  G.handCount[p] = handCount;
       	  memset(G.hand[p], 0, sizeof(int) * handCount);
-      	  checkDiscardCard(p, &G);
+      	  checkDiscardCard(handCount, 0, p, &G);
       	}
       }
     }
