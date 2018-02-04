@@ -6,6 +6,8 @@
 #include <stdio.h>
 #include <assert.h>
 #include "rngs.h"
+#include <string>
+#include <cstring>
 
 #define DEBUG 0
 #define NOISY_TEST 1

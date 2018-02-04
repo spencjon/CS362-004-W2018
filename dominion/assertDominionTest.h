@@ -11,5 +11,7 @@
 
 
 int assertStandardDom(int, string);
-int assertGameStateDom(int, string, struct gameState, struct gameState);
+int assertGameStateDom(int, string, struct gameState*, struct gameState*);
+void printGameState(struct gameState *);
+
 #endif
