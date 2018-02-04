@@ -92,8 +92,10 @@ int main () {
       	  memset(G.discard[p], 0, sizeof(int) * discardCount);
       	  G.handCount[p] = handCount;
       	  memset(G.hand[p], 0, sizeof(int) * handCount);
-      	  if(checkDiscardCard(handCount, 0, p, &G))
+          printf("Testing");
+          if(checkDiscardCard(handCount, 0, p, &G))
           {
+              printf("Tests Failed, requeted return");
               return 1;
           }
       	}
