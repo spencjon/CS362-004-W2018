@@ -20,7 +20,7 @@ int checkDiscardCard(int hp, int tf, int p, struct gameState *post) {
   //  printf ("discardCard PRE: p %d HC %d DeC %d DiC %d\n",
   //	  p, pre.handCount[p], pre.deckCount[p], pre.discardCount[p]);
 
-  r = discardCard(hp,p, &post,tf);
+  r = discardCard(hp,p, post,tf);
 
   //printf ("drawCard POST: p %d HC %d DeC %d DiC %d\n",
   //      p, post->handCount[p], post->deckCount[p], post->discardCount[p]);
@@ -28,7 +28,7 @@ int checkDiscardCard(int hp, int tf, int p, struct gameState *post) {
     {
       pre.playedCards[pre.playedCardCount] = pre.hand[p][hp];
       pre.playedCardCount++;
-      if(assertGameStateDom(pre.playedCardCount == post->playedCardCount, "CheckDiscardCard Trash Flag", &pre, post))
+      if(assertGameStateDom((pre.playedCardCount == post->playedCardCount), "CheckDiscardCard Trash Flag", &pre, post))
       {
         return 1;
       }
@@ -46,7 +46,7 @@ int checkDiscardCard(int hp, int tf, int p, struct gameState *post) {
     {
       pre.hand[p][hp] = pre.hand[p][pre.handCount[p] -1];
       pre.hand[p][pre.handCount[p] -1] = -1;
-      prre.handCount[p]--;
+      pre.handCount[p]--;
     }
 
   if(assertStandardDom(r == 0, "CheckDiscardCard Asserting R -eq 0"))

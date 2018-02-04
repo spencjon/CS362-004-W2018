@@ -1,3 +1,4 @@
+
 #include "assertDominionTest.h"
 #include "dominion.h"
 //Input: whether it worked or not, and a MSG to  be displated if failure
@@ -33,7 +34,7 @@ void printGameState(struct gameState *state)
   }
 
 
-int assertGameStateDom(int, string, struct gameState *pre, struct gameState *post)
+bool assertGameStateDom(bool, string, struct gameState *pre, struct gameState *post)
   {
     if(!assertion){
     fprintf(stderr,"Errormessage: %s", MSG);
@@ -52,7 +53,7 @@ int assertGameStateDom(int, string, struct gameState *pre, struct gameState *pos
     return 0;
 }
 
-int assertStandardDom(int assertion, string MSG){
+bool assertStandardDom(bool assertion, string MSG){
   if(!assertion){
     fprintf(stderr,"Errormessage: %s", MSG);
     cout << "Assertion Failed:" << MSG;

@@ -5,13 +5,14 @@
 #include "rngs.h"
 #include <string>
 #include <cstring>
+using namespace std;
 
 #ifndef _ASSERTDOMINIONTEST_H
 #define _ASSERTDOMINIONTEST_H
 
 
-int assertStandardDom(int, string);
-int assertGameStateDom(int, string, struct gameState*, struct gameState*);
+bool assertStandardDom(int, string);
+bool assertGameStateDom(int, string, struct gameState*, struct gameState*);
 void printGameState(struct gameState *);
 
 #endif
