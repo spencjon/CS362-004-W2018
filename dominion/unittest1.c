@@ -59,7 +59,7 @@ int checkDiscardCard(int hp, int tf, int p, struct gameState *post) {
   {
     return 1;
   }
-  printf("Check on current game discard has completed successfully...");
+  //printf("Check on current game discard has completed successfully...");
   return 0;
 
 }
