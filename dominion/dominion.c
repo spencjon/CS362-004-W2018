@@ -1231,7 +1231,7 @@ int smithy_effect(int currentPlayer, struct gameState *state, int handPos){ //dr
     {
       drawCard(currentPlayer, state);
     }
-        
+    printf("played smithy");  
     //discard card from hand
     discardCard(handPos, currentPlayer, state, 0);
     return -1;
