@@ -1,8 +1,11 @@
 //testDiscardCard.c
 #include "dominion.h"
 #include "dominion_helpers.h"
-#include "assertDominionTest.h"
+#include <string.h>
+#include <stdio.h>
+#include <assert.h>
 #include "rngs.h"
+#include "assertDominionTest.h"
 
 
 #define DEBUG 0
