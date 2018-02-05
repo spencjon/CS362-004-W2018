@@ -53,7 +53,7 @@ interface.o: interface.h interface.c
 
 runtests: testDiscardCard testNumHandCards testSupplyCount testIsGameOver testSmithyCard testAdventurerCard testGreatHallCard testVillageCard
 	./testDiscardCard &> unittestresult.out
-	gcov unittest1.c >> unittestresult.out
+	cat gcov unittest1.c >> unittestresult.out
 	cat unittest1.c >> unittestresult.out	
 	./testNumHandCards >> unittestresult.out
 	gcov unittest2.c >> unittestresult.out
