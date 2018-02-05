@@ -17,6 +17,7 @@ int checkGreatHallCard(int currentPlayer, struct gameState* gameReturned){
         return 1;
     }
     gameExpected.numActions++;
+    printf("NumActions Exp: %i, Returned: %i", gameExpected.numActions, gameReturned->numActions);
     if(assertStandardDom(gameExpected.numActions == gameReturned->numActions, "Actions inequal after additional")){
         return 1;
     }   
