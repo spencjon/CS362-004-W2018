@@ -16,7 +16,7 @@ int checkSmithyCard(int currentPlayer, struct gameState* gameReturned, struct ga
     }
 
     gameExpected->handCount[currentPlayer] += 2;
-    gameExpected->deckCount[currentPlayer] -= 2;
+    gameExpected->deckCount[currentPlayer] -= 3;
     printf("HandCount1: %i     2: %i    DeckCount1: %i      2: %i      \n", gameExpected->handCount[currentPlayer], gameReturned->handCount[currentPlayer], gameExpected->deckCount[currentPlayer], gameReturned->deckCount[currentPlayer] );
     if (assertStandardDom(gameReturned->deckCount[currentPlayer] == gameExpected->deckCount[currentPlayer], "Deck Count Varies")){
         return 1;
@@ -36,9 +36,6 @@ int main () {
 	       remodel, smithy, village, baron, great_hall};
 
   struct gameState G, F;
-
-  printf ("Testing discardCard.\n");
-
 
   printf ("SIMPLE FIXED TESTS: Smithy Card\n");
   for (p = 2; p < 5; p++)

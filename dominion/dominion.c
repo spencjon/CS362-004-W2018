@@ -656,7 +656,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
   int tributeRevealedCards[2] = {-1, -1};
   int temphand[MAX_HAND];// moved above the if statement
-  int drawntreasure=0;
+  
   
   if (nextPlayer > (state->numPlayers - 1)){
     nextPlayer = 0;
@@ -667,7 +667,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
   switch( card ) 
     {
     case adventurer:
-      return adventurer_effect(drawntreasure, state, currentPlayer);
+      return adventurer_effect(state, currentPlayer);
 
     case council_room:
       return council_room_effect(currentPlayer, state, handPos);
@@ -1237,10 +1237,11 @@ int smithy_effect(int currentPlayer, struct gameState *state, int handPos){ //dr
     return -1;
 }
 
-int adventurer_effect(int drawntreasure, struct gameState *state, int currentPlayer){
+int adventurer_effect(struct gameState *state, int currentPlayer){
     int cardDrawn;
     int temphand[MAX_HAND];
     int z = 0;
+    int drawntreasure=0;
     while(drawntreasure<2){
         if (state->deckCount[currentPlayer] <2){//if the deck is empty we need to shuffle discard and add to deck
             shuffle(currentPlayer, state);
