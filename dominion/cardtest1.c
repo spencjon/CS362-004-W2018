@@ -9,7 +9,7 @@
 int checkSmithyCard(int currentPlayer, struct gameState* gameReturned, struct gameState* gameExpected){
     
     int returned;
-    
+    char msg[] = "Deck Count Varies 999"
     returned = playCard(0,1,1,1,gameReturned);
     
     if(assertStandardDom(returned == -1, "Play Card Failed")){
@@ -18,7 +18,7 @@ int checkSmithyCard(int currentPlayer, struct gameState* gameReturned, struct ga
 
     gameExpected->handCount[currentPlayer] += 2;
     gameExpected->deckCount[currentPlayer] -= 2;
-
+    printf("HandCount1: %i     2: %i    DeckCount1: %i      2: %i      \n", gameExpected->handCount[currentPlayer], gameReturned->handCount[currentPlayer], gameExpected->deckCount[currentPlayer], gameReturned->deckCount[currentPlayer] );
     if (assertStandardDom(gameReturned->deckCount[currentPlayer] == gameExpected->deckCount[currentPlayer], "Deck Count Varies")){
         return 1;
     }
