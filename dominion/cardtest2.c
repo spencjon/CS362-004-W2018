@@ -15,7 +15,7 @@ int checkAdventurerCard(int currentPlayer, struct gameState* gameReturned){
     if(assertStandardDom(returned == 0, "Play Card Failed")){
         return 1;
     }
-
+    printf("HandCount1: %i     2: %i    DeckCount1: %i      2: %i      \n", gameExpected.handCount[currentPlayer], gameReturned->handCount[currentPlayer], gameExpected.deckCount[currentPlayer], gameReturned->deckCount[currentPlayer] );
     gameExpected.handCount[currentPlayer] += 1;
     gameExpected.deckCount[currentPlayer] -= 1;
     printf("HandCount1: %i     2: %i    DeckCount1: %i      2: %i      \n", gameExpected.handCount[currentPlayer], gameReturned->handCount[currentPlayer], gameExpected.deckCount[currentPlayer], gameReturned->deckCount[currentPlayer] );
