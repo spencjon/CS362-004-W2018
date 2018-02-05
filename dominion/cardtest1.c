@@ -7,11 +7,12 @@
 #include "assertDominionTest.h"
 
 int checkSmithyCard(int currentPlayer, struct gameState* gameReturned, struct gameState* gameExpected){
+    
     int returned;
-
+    
     returned = playCard(0,1,1,1,gameReturned);
-
-    assertStandardDom(returned == -1, "Play Card Failed"){
+    
+    if(assertStandardDom(returned == -1, "Play Card Failed")){
         return 1;
     }
 
