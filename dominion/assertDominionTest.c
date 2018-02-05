@@ -70,7 +70,7 @@ int assertStandardDom(int assertion, char* msg)
   if(!assertion){
     printf("Assertion Failed: %s \n", msg);
     printf("Exit? (Y/n): ");
-    scanf("%s", choice);
+    choice = getchar();
     printf("\n");
 
 
@@ -80,7 +80,7 @@ int assertStandardDom(int assertion, char* msg)
     char choice;
     cin >> choice;
     */
-    if(choice[0] == 'Y' || choice[0] == 'y'){
+    if(choice == 'Y' || choice == 'y'){
       return 1;
     }
     else
