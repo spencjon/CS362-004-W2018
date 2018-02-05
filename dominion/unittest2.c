@@ -26,7 +26,7 @@ int main(){
 	       remodel, smithy, village, baron, great_hall};
   struct gameState G;
   char msg[] = "initializeGame failed";
-  printf ("Simple Fixed Tests\n");
+  printf ("Simple Fixed Tests: numHandCards(...)\n");
 
 
 

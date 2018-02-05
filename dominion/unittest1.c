@@ -75,7 +75,7 @@ int main () {
   printf ("Testing discardCard.\n");
 
 
-  printf ("SIMPLE FIXED TESTS.\n");
+  printf ("SIMPLE FIXED TESTS: discardCard(...)\n");
   for (p = 0; p < 4; p++)
   {
     for (deckCount = 0; deckCount < 5; deckCount++)

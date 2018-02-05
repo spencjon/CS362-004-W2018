@@ -42,7 +42,7 @@ int main(){
 	       remodel, smithy, village, baron, great_hall};
   struct gameState G;
   char msg1[] = "initializeGame failed";
-  printf ("Simple Fixed Tests\n");
+  printf ("Simple Fixed Tests: supplyCount(...)\n");
 
   for(p = 2; p < 5; p++){
     for(i = 0; i < 27; i++){

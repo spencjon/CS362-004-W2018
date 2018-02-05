@@ -39,7 +39,7 @@ int main(){
 	       remodel, smithy, village, baron, great_hall};
   struct gameState G;
 
-  printf ("Simple Fixed Tests\n");
+  printf ("Simple Fixed Tests: isGameOver(...)\n");
 
   for(p = 2; p < 5; p++){
       r = initializeGame(p, k, 1, &G);
