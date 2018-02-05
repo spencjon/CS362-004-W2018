@@ -6,6 +6,9 @@ rngs.o: rngs.h rngs.c
 dominion.o: dominion.h dominion.c rngs.o
 	gcc -c dominion.c -g  $(CFLAGS)
 
+assertDominionTest.o: assertDominionTest.h assertDominionTest.c dominion.o rngs.out
+	gcc -c assertDominionTest.c -g $(CFLAGS)
+
 playdom: dominion.o playdom.c
 	gcc -o playdom playdom.c -g dominion.o rngs.o $(CFLAGS)
 #To run playdom you need to entere: ./playdom <any integer number> like ./playdom 10*/
@@ -18,11 +21,20 @@ badTestDrawCard: badTestDrawCard.c dominion.o rngs.o
 testBuyCard: testDrawCard.c dominion.o rngs.o
 	gcc -o testDrawCard -g  testDrawCard.c dominion.o rngs.o $(CFLAGS)
 
-testDiscardCard: unittest1.c assertDominionTest.c dominion.o rngs.o
-	gcc -o testDiscardCard -g assertDominionTest.c unittest1.c dominion.o rngs.o $(CFLAGS)
+testDiscardCard: unittest1.c assertDominionTest.o dominion.o rngs.o
+	gcc -o testDiscardCard -g  unittest1.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
-testAll: dominion.o testSuite.c
-	gcc -o testSuite testSuite.c -g  dominion.o rngs.o $(CFLAGS)
+testNumHandCards: unittest1.c assertDominionTest.o dominion.o rngs.o
+	gcc -o testNumHandCards -g  unittest2.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
+
+tesSupplyCount: unittest1.c assertDominionTest.o dominion.o rngs.o
+	gcc -o tesSupplyCount -g unittest3.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
+
+testIsGameOver: unittest1.c assertDominionTest.o dominion.o rngs.o
+	gcc -o testIsGameOver -g unittest4.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
+
+#testAll: dominion.o testSuite.c
+#	gcc -o testSuite testSuite.c -g  dominion.o rngs.o $(CFLAGS)
 
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
