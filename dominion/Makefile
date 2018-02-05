@@ -42,8 +42,8 @@ testAdventurerCard: cardtest1.c assertDominionTest.o dominion.o rngs.o
 testGreatHallCard: cardtest1.c assertDominionTest.o dominion.o rngs.o
 	gcc -o testGreatHallCard -g cardtest3.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
-testSalvagerCard: cardtest1.c assertDominionTest.o dominion.o rngs.o
-	gcc -o testSalvagerCard -g cardtest4.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
+testVillageCard: cardtest1.c assertDominionTest.o dominion.o rngs.o
+	gcc -o testVillageCard -g cardtest4.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
 #testAll: dominion.o testSuite.c
 #	gcc -o testSuite testSuite.c -g  dominion.o rngs.o $(CFLAGS)

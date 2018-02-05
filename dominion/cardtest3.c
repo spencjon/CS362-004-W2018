@@ -35,7 +35,7 @@ int main () {
 
   struct gameState G;
 
-  printf ("SIMPLE FIXED TESTS: Adventurer Card\n");
+  printf ("SIMPLE FIXED TESts: Great_Hall\n");
   for (p = 2; p < 5; p++)
   {
     for(i = 0; i < p; i++)
