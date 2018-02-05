@@ -30,7 +30,7 @@ int main(){
 
 
 
-  for(p = 1; p < 5; p++){
+  for(p = 2; p < 5; p++){
     for(i = 0; i < 4; i++){
       
       printf("tmp 1");
