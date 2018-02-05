@@ -8,14 +8,14 @@ int checkIsGameOver(struct gameState* state) {
     int i, j, expected = 1, returned;  
     struct gameState modify = *state;
     
-    returned = isGameOver(state);  
+    returned = isGameOver(&modify);  
     
     if(assertStandardDom((expected == returned), "Just Initialized")){
         return 1;
     }
 
     modify.supplyCount[province] = 0;
-    returned = isGameOver(state);  
+    returned = isGameOver(&modify);  
     if(assertStandardDom((expected == returned), "Provinces == 0")){
         return 1;
     }
@@ -24,7 +24,7 @@ int checkIsGameOver(struct gameState* state) {
     modify.supplyCount[smithy] = 0;
     modify.supplyCount[adventurer] = 0;
     modify.supplyCount[great_hall] = 0;
-    returned = isGameOver(state);  
+    returned = isGameOver(&modify);  
     if(assertStandardDom((expected == returned), "3 supply piles are empy")){
         return 1;
     }
@@ -34,7 +34,7 @@ int checkIsGameOver(struct gameState* state) {
 }
 
 int main(){
-  int p;
+  int r, i, p;
   int k[10] = {adventurer, council_room, feast, gardens, mine,
 	       remodel, smithy, village, baron, great_hall};
   struct gameState G;
@@ -44,11 +44,11 @@ int main(){
   for(p = 2; p < 5; p++){
       r = initializeGame(p, k, 1, &G);
       if(assertStandardDom((r == 0), "initializeGame failed")){
-        printf("Return Requested.. Returning... ")
+        printf("Return Requested.. Returning... ");
         return 1;
       }
       G.whoseTurn = i;
-      if(checkIsGameOver(gameState)){
+      if(checkIsGameOver(&G)){
         printf("Return Requested.. Returning...");
         return 1;
     }
