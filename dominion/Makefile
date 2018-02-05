@@ -52,8 +52,8 @@ interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
 
 runtests: testDiscardCard testNumHandCards testSupplyCount testIsGameOver testSmithyCard testAdventurerCard testGreatHallCard testVillageCard
-	./testDiscardCard &> unittestresult.out
-	cat gcov unittest1.c >> unittestresult.out
+	./testDiscardCard > unittestresult.out
+	gcov unittest1.c >> unittestresult.out
 	cat unittest1.c >> unittestresult.out	
 	./testNumHandCards >> unittestresult.out
 	gcov unittest2.c >> unittestresult.out
