@@ -7,23 +7,27 @@
 #include "assertDominionTest.h"
 
 int checkAdventurerCard(int currentPlayer, struct gameState* gameReturned, struct gameState* gameExpected){
+  int checkSmithyCard(int currentPlayer, struct gameState* gameReturned){
     
-    int returned, cardDrawn1, cardDrawn2;
+    int returned;
+    struct gameState gameExpected;
+    memcpy (&gameExpected, gameReturned, sizeof(struct gameState));
     returned = playCard(0,1,1,1,gameReturned);
     
-    if(assertStandardDom(returned == 0, "Play Adventurer Card Failed")){
+    if(assertStandardDom(returned == -1, "Play Card Failed")){
         return 1;
     }
 
-    gameExpected->handCount[currentPlayer] += 1;
-    gameExpected->deckCount[currentPlayer] -= 1;
-    printf("HandCount1: %i     2: %i    DeckCount1: %i      2: %i      \n", gameExpected->handCount[currentPlayer], gameReturned->handCount[currentPlayer], gameExpected->deckCount[currentPlayer], gameReturned->deckCount[currentPlayer] );
-    if (assertStandardDom(gameReturned->deckCount[currentPlayer] == gameExpected->deckCount[currentPlayer], "Deck Count Varies")){
+    gameExpected.handCount[currentPlayer] += 1;
+    gameExpected.deckCount[currentPlayer] -= 1;
+    printf("HandCount1: %i     2: %i    DeckCount1: %i      2: %i      \n", gameExpected.handCount[currentPlayer], gameReturned->handCount[currentPlayer], gameExpected.deckCount[currentPlayer], gameReturned->deckCount[currentPlayer] );
+    if (assertStandardDom(gameReturned->deckCount[currentPlayer] == gameExpected.deckCount[currentPlayer], "Deck Count Varies")){
         return 1;
     }
-    if (assertStandardDom(gameReturned->handCount[currentPlayer] == gameExpected->handCount[currentPlayer], "Hand Count Varies")){
+    if (assertStandardDom(gameReturned->handCount[currentPlayer] == gameExpected.handCount[currentPlayer], "Hand Count Varies")){
         return 1;
     }
+
     cardDrawn1 = gameReturned->hand[currentPlayer][gameReturned->handCount[currentPlayer]-1];
     cardDrawn2 = gameReturned->hand[currentPlayer][gameReturned->handCount[currentPlayer]-2];
     if(assertStandardDom(cardDrawn1 != copper && cardDrawn1 != silver && cardDrawn1 != gold, "Did not draw a treasure first")){
@@ -52,7 +56,7 @@ int main () {
     {
         printf("Testing Players: %i, Player: %i\n", p, i);
         initializeGame(2, k, 1, &G);
-        G.hand[i][0] = 7; //place smithy card into hand
+        G.hand[i][0] = 7; //place adventurer card into hand
         G.whoseTurn = i; //it's that person's turn
         
         if(checkAdventurerCard(i, &G))

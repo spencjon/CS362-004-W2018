@@ -17,8 +17,8 @@ int checkSmithyCard(int currentPlayer, struct gameState* gameReturned){
         return 1;
     }
 
-    gameExpected.handCount[currentPlayer] += 1;
-    gameExpected.deckCount[currentPlayer] -= 1;
+    gameExpected.handCount[currentPlayer] += 2;
+    gameExpected.deckCount[currentPlayer] -= 2;
     printf("HandCount1: %i     2: %i    DeckCount1: %i      2: %i      \n", gameExpected.handCount[currentPlayer], gameReturned->handCount[currentPlayer], gameExpected.deckCount[currentPlayer], gameReturned->deckCount[currentPlayer] );
     if (assertStandardDom(gameReturned->deckCount[currentPlayer] == gameExpected.deckCount[currentPlayer], "Deck Count Varies")){
         return 1;
