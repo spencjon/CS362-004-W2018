@@ -68,6 +68,7 @@ int assertStandardDom(int assertion, char* MSG)
 {
   char choice[1];
   if(!assertion){
+    printf("Assertion Failed: %s \n", msg);
     printf("Exit? (Y/n): ");
     scanf("%s", choice);
     printf("\n");
