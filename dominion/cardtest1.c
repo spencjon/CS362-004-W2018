@@ -49,7 +49,7 @@ int main () {
         G.whoseTurn = i; //it's that person's turn
         F = G;
         
-        if(checkSmithyCard(i, &G, &F))
+        if(checkSmithyCard(i, &G))
         {
             printf("\n****ERROR: Tests Failed, requeted return****\n");
             return 1;
