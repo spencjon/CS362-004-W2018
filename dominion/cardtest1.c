@@ -7,7 +7,7 @@
 #include "assertDominionTest.h"
 
 int checkSmithyCard(int currentPlayer, struct gameState* gameReturned, struct gameState* gameExpected){
-    int expected, returned;
+    int returned;
 
     returned = playCard(0,1,1,1,gameReturned);
 
@@ -19,17 +19,18 @@ int checkSmithyCard(int currentPlayer, struct gameState* gameReturned, struct ga
     gameExpected->deckCount[currentPlayer] -= 3;
 
     if (assertStandardDom(gameReturned->deckCount[currentPlayer] == gameExpected->deckCount[currentPlayer], "Deck Count Varies")){
-        return 1
+        return 1;
     }
-    if (assertStandardDom(gameReturned->handCount[currentPlayer] == gameExpected->handCount[currentPlayer], "Hand Count Varies"))
-
+    if (assertStandardDom(gameReturned->handCount[currentPlayer] == gameExpected->handCount[currentPlayer], "Hand Count Varies")){
+        return 1;
+    }
     return 0;
 }
 
 
 int main () {
 
-  int p, i, returned, expected;
+  int p, i;
 
   int k[10] = {adventurer, council_room, feast, gardens, mine,
 	       remodel, smithy, village, baron, great_hall};
@@ -45,8 +46,8 @@ int main () {
     for(i = 0; i < 4; i++)
     {
         initializeGame(2, k, 1, &G);
-        G->hand[i][0] = 13; //place smithy card into hand
-        G->whoseTurn = i; //it's that person's turn
+        G.hand[i][0] = 13; //place smithy card into hand
+        G.whoseTurn = i; //it's that person's turn
         F = G;
         
         if(checkSmithyCard(i, &G, &F))
@@ -59,5 +60,5 @@ int main () {
   }
   printf("\nAll tests have passed\n");
 
-  return 1;
+  return 0;
 }
