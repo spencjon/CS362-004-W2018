@@ -9,7 +9,6 @@
 int checkSmithyCard(int currentPlayer, struct gameState* gameReturned, struct gameState* gameExpected){
     
     int returned;
-    char msg[] = "Deck Count Varies 999"
     returned = playCard(0,1,1,1,gameReturned);
     
     if(assertStandardDom(returned == -1, "Play Card Failed")){
