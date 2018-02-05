@@ -28,7 +28,7 @@ testNumHandCards: unittest1.c assertDominionTest.o dominion.o rngs.o
 	gcc -o testNumHandCards -g  unittest2.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
 testSupplyCount: unittest1.c assertDominionTest.o dominion.o rngs.o
-	gcc -o tesSupplyCount -g unittest3.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
+	gcc -o testSupplyCount -g unittest3.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
 testIsGameOver: unittest1.c assertDominionTest.o dominion.o rngs.o
 	gcc -o testIsGameOver -g unittest4.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)

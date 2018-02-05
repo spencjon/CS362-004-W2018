@@ -5,7 +5,7 @@
 #include "rngs.h"
 
 int checkIsGameOver(struct gameState* state) {
-    int i, j, expected = 1, returned;  
+    int expected = 1, returned;  
     struct gameState modify = *state;
     
     returned = isGameOver(&modify);  
@@ -47,7 +47,6 @@ int main(){
         printf("Return Requested.. Returning... ");
         return 1;
       }
-      G.whoseTurn = i;
       if(checkIsGameOver(&G)){
         printf("Return Requested.. Returning...");
         return 1;
