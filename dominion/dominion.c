@@ -656,8 +656,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
   int tributeRevealedCards[2] = {-1, -1};
   int temphand[MAX_HAND];// moved above the if statement
   int drawntreasure=0;
-  int cardDrawn;
-  int z = 0;// this is the counter for the temp hand
+  
   if (nextPlayer > (state->numPlayers - 1)){
     nextPlayer = 0;
   }
@@ -1225,7 +1224,7 @@ int updateCoins(int player, struct gameState *state, int bonus)
   return 0;
 }
 
-int smithy(int currentPlayer, struct gameState *state, int handPos){ //draw 3 cards
+int smithy_effect(int currentPlayer, struct gameState *state, int handPos){ //draw 3 cards
     int i;
     for (i = 0; i < 3; i++)
     {
@@ -1237,7 +1236,7 @@ int smithy(int currentPlayer, struct gameState *state, int handPos){ //draw 3 ca
     return -1;
 }
 
-int adventurer(int drawntreasure, struct gameState *state, int currentPlayer){
+int adventurer_effect(int drawntreasure, struct gameState *state, int currentPlayer){
     int cardDrawn, temphand[MAX_HAND];
     z = 0;
     while(drawntreasure<2){
@@ -1261,7 +1260,7 @@ int adventurer(int drawntreasure, struct gameState *state, int currentPlayer){
     return 0;
 }
 
-int village(int currentPlayer, struct gameState *state, int handPos){
+int village_effect(int currentPlayer, struct gameState *state, int handPos){
 //+1 Card
     drawCard(currentPlayer, state);
         
@@ -1273,7 +1272,7 @@ int village(int currentPlayer, struct gameState *state, int handPos){
     return 0;
 }
 
-int baron(int currentPlayer, struct gameState *state, int handPos, int choice1){
+int baron_effect(int currentPlayer, struct gameState *state, int handPos, int choice1){
     state->numBuys++;//Increase buys by 1!
       if (choice1 > 0){//Boolean true or going to discard an estate
 	int p = 0;//Iterator for hand!
@@ -1323,7 +1322,7 @@ int baron(int currentPlayer, struct gameState *state, int handPos, int choice1){
     return 0;
 }
 
-int council_room(int currentPlayer, struct gameState *state, int handPos){
+int council_room_effect(int currentPlayer, struct gameState *state, int handPos){
     int i;
     
     //+4 Cards
