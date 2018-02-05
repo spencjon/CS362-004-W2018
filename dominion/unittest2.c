@@ -1,3 +1,5 @@
+#include <string.h>
+
 #include "dominion.h"
 #include "assertDominionTest.h"
 #include "dominion_helpers.h"
@@ -8,7 +10,7 @@ int checkNumHandCards(struct gameState *state)
 {
   int expected;
   int returned;
-  char msg[] = "Num Cards Failed"
+  char msg[] = "Num Cards Failed";
   expected = state->handCount[state->whoseTurn];
   returned = numHandCards(state);
 
