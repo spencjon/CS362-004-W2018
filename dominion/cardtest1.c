@@ -6,22 +6,24 @@
 #include "rngs.h"
 #include "assertDominionTest.h"
 
-int checkSmithyCard(int currentPlayer, struct gameState* gameReturned, struct gameState* gameExpected){
+int checkSmithyCard(int currentPlayer, struct gameState* gameReturned){
     
     int returned;
+    struct gameState gameExpected;
+    memcpy (&gameExpected, gameReturned, sizeof(struct gameState));
     returned = playCard(0,1,1,1,gameReturned);
     
     if(assertStandardDom(returned == -1, "Play Card Failed")){
         return 1;
     }
 
-    gameExpected->handCount[currentPlayer] += 2;
-    gameExpected->deckCount[currentPlayer] -= 3;
-    printf("HandCount1: %i     2: %i    DeckCount1: %i      2: %i      \n", gameExpected->handCount[currentPlayer], gameReturned->handCount[currentPlayer], gameExpected->deckCount[currentPlayer], gameReturned->deckCount[currentPlayer] );
-    if (assertStandardDom(gameReturned->deckCount[currentPlayer] == gameExpected->deckCount[currentPlayer], "Deck Count Varies")){
+    gameExpected.handCount[currentPlayer] += 1;
+    gameExpected.deckCount[currentPlayer] -= 1;
+    printf("HandCount1: %i     2: %i    DeckCount1: %i      2: %i      \n", gameExpected.handCount[currentPlayer], gameReturned->handCount[currentPlayer], gameExpected.deckCount[currentPlayer], gameReturned->deckCount[currentPlayer] );
+    if (assertStandardDom(gameReturned->deckCount[currentPlayer] == gameExpected.deckCount[currentPlayer], "Deck Count Varies")){
         return 1;
     }
-    if (assertStandardDom(gameReturned->handCount[currentPlayer] == gameExpected->handCount[currentPlayer], "Hand Count Varies")){
+    if (assertStandardDom(gameReturned->handCount[currentPlayer] == gameExpected.handCount[currentPlayer], "Hand Count Varies")){
         return 1;
     }
     return 0;
@@ -35,7 +37,7 @@ int main () {
   int k[10] = {adventurer, council_room, feast, gardens, mine,
 	       remodel, smithy, village, baron, great_hall};
 
-  struct gameState G, F;
+  struct gameState G;
 
   printf ("SIMPLE FIXED TESTS: Smithy Card\n");
   for (p = 2; p < 5; p++)

@@ -43,7 +43,7 @@ int main () {
   int k[10] = {adventurer, council_room, feast, gardens, mine,
 	       remodel, smithy, village, baron, great_hall};
 
-  struct gameState G, F;
+  struct gameState G;
 
   printf ("SIMPLE FIXED TESTS: Adventurer Card\n");
   for (p = 2; p < 5; p++)
@@ -54,9 +54,8 @@ int main () {
         initializeGame(2, k, 1, &G);
         G.hand[i][0] = 7; //place smithy card into hand
         G.whoseTurn = i; //it's that person's turn
-        F = G;
         
-        if(checkAdventurerCard(i, &G, &F))
+        if(checkAdventurerCard(i, &G))
         {
             printf("\n****ERROR: Tests Failed, requeted return****\n");
             return 1;
