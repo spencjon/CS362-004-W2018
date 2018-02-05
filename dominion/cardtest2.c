@@ -24,8 +24,8 @@ int checkAdventurerCard(int currentPlayer, struct gameState* gameReturned, struc
     if (assertStandardDom(gameReturned->handCount[currentPlayer] == gameExpected->handCount[currentPlayer], "Hand Count Varies")){
         return 1;
     }
-    cardDrawn1 = gameReturned->hand[currentPlayer][state->handCount[currentPlayer]-1];
-    cardDrawn2 = gameReturned->hand[currentPlayer][state->handCount[currentPlayer]-2];
+    cardDrawn1 = gameReturned->hand[currentPlayer][gameReturned->handCount[currentPlayer]-1];
+    cardDrawn2 = gameReturned->hand[currentPlayer][gameReturned->handCount[currentPlayer]-2];
     if(assertStandardDom(cardDrawn1 != copper && cardDrawn1 != silver && cardDrawn1 != gold, "Did not draw a treasure first")){
         return 1;    
     }
