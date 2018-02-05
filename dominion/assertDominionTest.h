@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include "rngs.h"
-using namespace std;
+
 
 int assertStandardDom(int, char*);
 int assertGameStateDom(int, char*, struct gameState*, struct gameState*);
