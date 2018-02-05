@@ -51,7 +51,8 @@ int assertGameStateDom(int assertion, char* msg, struct gameState *pre, struct g
       cin >> choice;
       */
       printf("Exit? (Y/n): ");
-      choice = getchar();
+      //choice = getchar();
+      choice = 'n';
       printf("\n");
       if(choice == 'Y' || choice == 'y'){
         return 1;
@@ -70,7 +71,8 @@ int assertStandardDom(int assertion, char* msg)
   if(!assertion){
     printf("Assertion Failed: %s \n", msg);
     printf("Exit? (Y/n): ");
-    choice = getchar();
+    //choice = getchar();
+    choice = 'n';
     printf("\n");
 
 
