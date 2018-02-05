@@ -10,6 +10,8 @@ int checkAdventurerCard(int currentPlayer, struct gameState* gameReturned){
     int returned, cardDrawn1, cardDrawn2;
     struct gameState gameExpected;
     memcpy (&gameExpected, gameReturned, sizeof(struct gameState));
+    printf("HandCount1: %i     2: %i    DeckCount1: %i      2: %i      \n", gameExpected.handCount[currentPlayer], gameReturned->handCount[currentPlayer], gameExpected.deckCount[currentPlayer], gameReturned->deckCount[currentPlayer] );
+
     returned = playCard(0,1,1,1,gameReturned);
     
     if(assertStandardDom(returned == 0, "Play Card Failed")){
