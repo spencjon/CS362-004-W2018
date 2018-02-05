@@ -50,6 +50,7 @@ int main () {
   {
     for(i = 0; i < p; i++)
     {
+        printf("Testing Players: %i, Player: %i\n", p, i);
         initializeGame(2, k, 1, &G);
         G.hand[i][0] = 7; //place smithy card into hand
         G.whoseTurn = i; //it's that person's turn
