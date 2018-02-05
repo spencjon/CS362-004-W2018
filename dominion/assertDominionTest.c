@@ -9,7 +9,7 @@
 void printGameState(struct gameState *state)
   {
 
-    printf("\nNumPlayers: %i", state ->numPlayers);
+    printf("\n NumPlayers: %i \n", state ->numPlayers);
       /*
       cout << "\nnumPlayers:"  << state -> numPlayers ; //number of players
       cout << "\nsupplyCount: " << state -> state -> supplyCount[treasure_map+1];  //this is the amount of a specific type of card given a specific number.

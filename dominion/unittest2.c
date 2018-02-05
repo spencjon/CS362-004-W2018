@@ -8,10 +8,13 @@ int checkNumHandCards(struct gameState *state)
 {
   int expected;
   int returned;
+  char msg[] = "Num Cards Failed"
   expected = state->handCount[state->whoseTurn];
   returned = numHandCards(state);
 
-  if(assertStandardDom((expected == returned), "A")) return 1;
+  if(assertStandardDom((expected == returned), msg)) {
+    return 1;
+  }
   return 0;
 }
 
@@ -20,13 +23,13 @@ int main(){
   int k[10] = {adventurer, council_room, feast, gardens, mine,
 	       remodel, smithy, village, baron, great_hall};
   struct gameState G;
-
+  char msg[] = "initializeGame failed";
   printf ("Simple Fixed Tests\n");
 
   for(p = 1; p < 5; p++){
     for(i = 0; i < 4; i++){
       r = initializeGame(p, k, 1, &G);
-      if(assertStandardDom((r == 0), "initializeGame failed")){
+      if(assertStandardDom((r == 0), msg)){
         printf("Return Requested.. Returning... ");
         return 1;
       }
