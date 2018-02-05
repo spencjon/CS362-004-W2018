@@ -5,18 +5,18 @@
 #include "rngs.h"
 
 int checkIsGameOver(struct gameState* state) {
-    int expected = 1, returned;  
+    int returned;  
     struct gameState modify = *state;
     
     returned = isGameOver(&modify);  
     
-    if(assertStandardDom((expected == returned), "Just Initialized")){
+    if(assertStandardDom((returned == 0), "Just Initialized")){
         return 1;
     }
 
     modify.supplyCount[province] = 0;
     returned = isGameOver(&modify);  
-    if(assertStandardDom((expected == returned), "Provinces == 0")){
+    if(assertStandardDom((returned == 1), "Provinces == 0")){
         return 1;
     }
 
@@ -25,7 +25,7 @@ int checkIsGameOver(struct gameState* state) {
     modify.supplyCount[adventurer] = 0;
     modify.supplyCount[great_hall] = 0;
     returned = isGameOver(&modify);  
-    if(assertStandardDom((expected == returned), "3 supply piles are empy")){
+    if(assertStandardDom((returned == 1), "3 supply piles are empy")){
         return 1;
     }
 
