@@ -104,5 +104,5 @@ int main () {
   }
   printf("\nAll tests have passed\n");
 
-  return 1;
+  return 0;
 }
