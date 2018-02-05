@@ -26,8 +26,11 @@ int main(){
   char msg[] = "initializeGame failed";
   printf ("Simple Fixed Tests\n");
 
+
+
   for(p = 1; p < 5; p++){
     for(i = 0; i < 4; i++){
+      memset(&G, 23, sizeof(struct gameState));
       r = initializeGame(p, k, 1, &G);
       if(assertStandardDom((r == 0), msg)){
         printf("Return Requested.. Returning... ");
