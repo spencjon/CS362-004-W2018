@@ -11,7 +11,7 @@ assertDominionTest.o: assertDominionTest.h assertDominionTest.c dominion.o rngs.
 
 playdom: dominion.o playdom.c
 	gcc -o playdom playdom.c -g dominion.o rngs.o $(CFLAGS)
-#To run playdom you need to entere: ./playdom <any integer number> like ./playdom 10*/
+#To run playdom you need to entere: ./playdom <any integer number> like ./playdom 1o*/
 testDrawCard: testDrawCard.c dominion.o rngs.o
 	gcc  -o testDrawCard -g  testDrawCard.c dominion.o rngs.o $(CFLAGS)
 
@@ -34,16 +34,16 @@ testIsGameOver: unittest1.c assertDominionTest.o dominion.o rngs.o
 	gcc -o testIsGameOver -g unittest4.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
 testSmithyCard: cardtest1.c assertDominionTest.o dominion.o rngs.o
-	gcc -0 testSmithyCard -g cardtest1.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
+	gcc -o testSmithyCard -g cardtest1.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
 testAdventurerCard: cardtest1.c assertDominionTest.o dominion.o rngs.o
-	gcc -0 testAdventurerCard -g cardtest2.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
+	gcc -o testAdventurerCard -g cardtest2.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
 testGreatHallCard: cardtest1.c assertDominionTest.o dominion.o rngs.o
-	gcc -0 testGreatHallCard -g cardtest3.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
+	gcc -o testGreatHallCard -g cardtest3.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
 testSalvagerCard: cardtest1.c assertDominionTest.o dominion.o rngs.o
-	gcc -0 testSalvagerCard -g cardtest4.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
+	gcc -o testSalvagerCard -g cardtest4.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
 #testAll: dominion.o testSuite.c
 #	gcc -o testSuite testSuite.c -g  dominion.o rngs.o $(CFLAGS)
