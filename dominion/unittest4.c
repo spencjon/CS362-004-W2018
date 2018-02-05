@@ -34,7 +34,7 @@ int checkIsGameOver(struct gameState* state) {
 }
 
 int main(){
-  int r, i, p;
+  int r, p;
   int k[10] = {adventurer, council_room, feast, gardens, mine,
 	       remodel, smithy, village, baron, great_hall};
   struct gameState G;
@@ -51,7 +51,7 @@ int main(){
         printf("Return Requested.. Returning...");
         return 1;
     }
-    printf("Tests passed for %i players", i);
+    printf("Tests passed for %i players", p);
   }
   printf("Tests passed for all number of players");
   return 0;
