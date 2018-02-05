@@ -12,7 +12,7 @@ int checkAdventurerCard(int currentPlayer, struct gameState* gameReturned){
     memcpy (&gameExpected, gameReturned, sizeof(struct gameState));
     returned = playCard(0,1,1,1,gameReturned);
     
-    if(assertStandardDom(returned == -1, "Play Card Failed")){
+    if(assertStandardDom(returned == 0, "Play Card Failed")){
         return 1;
     }
 
