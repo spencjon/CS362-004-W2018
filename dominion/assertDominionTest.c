@@ -34,12 +34,12 @@ void printGameState(struct gameState *state)
 
 
 
-int assertGameStateDom(int assertion, char* MSG, struct gameState *pre, struct gameState *post)
+int assertGameStateDom(int assertion, char* msg, struct gameState *pre, struct gameState *post)
   {
-    char choice[1];
+    char choice;
     if(!assertion)
     {
-      printf("Assertion Failed: %s \n", MSG);
+      printf("Assertion Failed: %s \n", msg);
       /*
       cout << "\nAssertion Failed:" << MSG;
       cout << "\n \n*************PRE*******************";
@@ -52,9 +52,9 @@ int assertGameStateDom(int assertion, char* MSG, struct gameState *pre, struct g
       cin >> choice;
       */
       printf("Exit? (Y/n): ");
-      scanf("%s", choice);
+      choice = getchar();
       printf("\n");
-      if(choice[0] == 'Y' || choice[0] == 'y'){
+      if(choice == 'Y' || choice == 'y'){
         return 1;
       }
       else
