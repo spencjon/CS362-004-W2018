@@ -17,17 +17,17 @@ int checkSupplyCount(int card, struct gameState* state) {
     int expectedCount, returnedCount, numPlayers;
     char msg1[] = "Too many Estate, Dutchy, or Province";
     char msg2[] = "CheckSupplyCount, not equal";
-    returnedCount = whoseTurn(state);
+    returnedCount = supplyCount(card, state);
     expectedCount = state->supplyCount[card];
     printf("tmp 4");
-    if(assertStandardDom((int)(returnedCount == expectedCount), msg1)){
+    if(assertStandardDom((returnedCount == expectedCount), msg2)){
       return 1;
     }
 
     numPlayers = state->numPlayers;
     if(numPlayers < 3){
       if(card >= 1 && card <= 3){
-        if(assertStandardDom((expectedCount > 8), msg2)){ 
+        if(assertStandardDom((expectedCount > 8), msg1)){ 
           return 1;
         }
       }
