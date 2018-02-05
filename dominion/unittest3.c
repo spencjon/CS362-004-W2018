@@ -27,7 +27,7 @@ int checkSupplyCount(int card, struct gameState* state) {
     if(numPlayers < 3){
       if(card >= 1 && card <= 3){
         printf("CardNum %i, numPlayers %i, numCards %i\n", card, numPlayers, returnedCount);
-        if(assertStandardDom((returnedCount > 8), msg1)){
+        if(assertStandardDom((returnedCount > 9), msg1)){
           return 1;
         }
       }
