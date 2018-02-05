@@ -166,11 +166,11 @@ int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
       //initialize hand size to zero
       state->handCount[i] = 0;
       state->discardCount[i] = 0;
-      //draw 5 cards
-      // for (j = 0; j < 5; j++)
-      //	{
-      //	  drawCard(i, state);
-      //	}
+      draw 5 cards
+      for (j = 0; j < 5; j++)
+      {
+      	  drawCard(i, state);
+      }
     }
   
   //set embargo tokens to 0 for all supply piles
@@ -190,9 +190,9 @@ int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
   //int it; move to top
 
   //Moved draw cards to here, only drawing at the start of a turn
-  for (it = 0; it < 5; it++){
-    drawCard(state->whoseTurn, state);
-  }
+  //for (it = 0; it < 5; it++){
+  //  drawCard(state->whoseTurn, state);
+  //}
 
   updateCoins(state->whoseTurn, state, 0);
 
