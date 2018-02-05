@@ -47,7 +47,6 @@ int main () {
         initializeGame(2, k, 1, &G);
         G.hand[i][0] = 13; //place smithy card into hand
         G.whoseTurn = i; //it's that person's turn
-        F = G;
         
         if(checkSmithyCard(i, &G))
         {
