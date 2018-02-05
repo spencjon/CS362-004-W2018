@@ -9,14 +9,14 @@ int checkNumHandCards(struct gameState *state)
   int expected;
   int returned;
   expected = state->handCount[state->whoseTurn];
-  returned = numHandCards(post);
+  returned = numHandCards(state);
 
   if(assertStandardDom((expected == returned), "A")) return 1;
   return 0;
 }
 
 int main(){
-  int p, i. r;
+  int p, i, r;
   int k[10] = {adventurer, council_room, feast, gardens, mine,
 	       remodel, smithy, village, baron, great_hall};
   struct gameState G;
