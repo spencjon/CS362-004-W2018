@@ -19,11 +19,19 @@ int checkSupplyCount(int card, struct gameState* state) {
     char msg2[] = "CheckSupplyCount, not equal";
     returnedCount = whoseTurn(state);
     expectedCount = state->supplyCount[card];
-    if(assertStandardDom((int)(returnedCount == expectedCount), msg1)) return 1;
+    printf("tmp 4");
+    if(assertStandardDom((int)(returnedCount == expectedCount), msg1)){
+      return 1;
+    }
+
     numPlayers = state->numPlayers;
-    if(numPlayers < 3)
-      if(card >= 1 && card <= 3)
-          if(assertStandardDom((expectedCount > 8), msg2)) return 1;
+    if(numPlayers < 3){
+      if(card >= 1 && card <= 3){
+        if(assertStandardDom((expectedCount > 8), msg2)){ 
+          return 1;
+        }
+      }
+    }
   return 0;
 }
 
@@ -43,10 +51,12 @@ int main(){
         printf("Return Requested.. Returning... \n");
         return 1;
       }
+      printf("tmp 1");
       if(checkSupplyCount(i, &G)){
         printf("Return Requested.. Returning... card number: %i \n", i);
         return 1;
-      } 
+      }
+      printf("tmp 2"); 
     }
     printf("Tests passed for %i cards\n", i);
   }
