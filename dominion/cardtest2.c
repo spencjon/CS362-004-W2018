@@ -28,10 +28,10 @@ int checkAdventurerCard(int currentPlayer, struct gameState* gameReturned){
 
     cardDrawn1 = gameReturned->hand[currentPlayer][gameReturned->handCount[currentPlayer]-1];
     cardDrawn2 = gameReturned->hand[currentPlayer][gameReturned->handCount[currentPlayer]-2];
-    if(assertStandardDom(cardDrawn1 != 4 && cardDrawn1 != 5 && cardDrawn1 != 6, "Did not draw a treasure first")){
+    if(assertStandardDom((cardDrawn1 == 4 || cardDrawn1 == 5 || cardDrawn1 == 6), "Did not draw a treasure first")){
         return 1;    
     }
-    if(assertStandardDom(cardDrawn2 != 4 && cardDrawn2 != 5 && cardDrawn2 != 6, "Did not draw a treasure second")){
+    if(assertStandardDom((cardDrawn1 == 4 || cardDrawn1 == 5 || cardDrawn1 == 6), "Did not draw a treasure second")){
         return 1;    
     }
     return 0;
