@@ -67,13 +67,13 @@ runtests: testDiscardCard testNumHandCards testSupplyCount testIsGameOver testSm
 	./testSmithyCard >> unittestresult.out
 	gcov cardtest1.c >> unittestresult.out
 	cat cardtest1.c.gcov >> unittestresult.out
-	./testSmithyCard >> unittestresult.out
+	./testAdventurerCard >> unittestresult.out
 	gcov cardtest2.c >> unittestresult.out
 	cat cardtest2.c.gcov >> unittestresult.out
-	./testSmithyCard >> unittestresult.out
+	./testGreatHallCard >> unittestresult.out
 	gcov cardtest3.c >> unittestresult.out
 	cat cardtest3.c.gcov >> unittestresult.out
-	./testSmithyCard >> unittestresult.out
+	./testVillageCard >> unittestresult.out
 	gcov cardtest4.c >> unittestresult.out
 	cat cardtest4.c.gcov >> unittestresult.out
 	gcov dominion.c >> unittestresult.out
