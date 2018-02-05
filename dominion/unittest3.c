@@ -47,10 +47,12 @@ int main(){
   for(p = 1; p < 5; p++){
     for(i = 0; i < 27; i++){
       r = initializeGame(p, k, 1, &G);
+      printf("Before");
       if(assertStandardDom((r == 0), msg1)){
         printf("Return Requested.. Returning... \n");
         return 1;
       }
+      printf("after");
       printf("tmp 1");
       if(checkSupplyCount(i, &G)){
         printf("Return Requested.. Returning... card number: %i \n", i);
