@@ -2,8 +2,7 @@
 #include "assertDominionTest.h"
 #include "dominion_helpers.h"
 #include "rngs.h"
-#include <string>
-#include <cstring>
+
 
 int checkNumHandCards(struct gameState *state)
 {
@@ -24,12 +23,21 @@ int main(){
 
   printf ("Simple Fixed Tests\n");
 
-  for(p = 0; p < 4; p++)
+  for(p = 1; p < 5; p++){
     for(i = 0; i < 4; i++){
       r = initializeGame(p, k, 1, &G);
-      if(assertStandardDom((r == 0), "initializeGame failed")) return 1;
-      
-      if(checkNumHandCards(gameState))
-
+      if(assertStandardDom((r == 0), "initializeGame failed")){
+        printf("Return Requested.. Returning... ")
+        return 1;
+      }
+      G.whoseTurn = i;
+      if(checkNumHandCards(gameState)){
+        printf("Return Requested.. Returning...");
+        return 1;
+      } 
     }
+    printf("Tests passed for %i players", i);
+  }
+  printf("Tests passed for all number of players");
+  return 0;
 }
