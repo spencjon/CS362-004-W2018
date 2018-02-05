@@ -33,6 +33,18 @@ testSupplyCount: unittest1.c assertDominionTest.o dominion.o rngs.o
 testIsGameOver: unittest1.c assertDominionTest.o dominion.o rngs.o
 	gcc -o testIsGameOver -g unittest4.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
+testSmithyCard: cardtest1.c assertDominionTest.o dominion.o rngs.out
+	gcc -0 testSmithyCard -g cardtest1.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
+
+testAdventurerCard: cardtest1.c assertDominionTest.o dominion.o rngs.out
+	gcc -0 testAdventurerCard -g cardtest2.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
+
+testGreatHallCard: cardtest1.c assertDominionTest.o dominion.o rngs.out
+	gcc -0 testGreatHallCard -g cardtest3.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
+
+testSalvagerCard: cardtest1.c assertDominionTest.o dominion.o rngs.out
+	gcc -0 testSalvagerCard -g cardtest4.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
+
 #testAll: dominion.o testSuite.c
 #	gcc -o testSuite testSuite.c -g  dominion.o rngs.o $(CFLAGS)
 
@@ -51,4 +63,4 @@ player: player.c interface.o
 all: playdom player testDrawCard testBuyCard badTestDrawCard testDiscardCard
 
 clean:
-	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe
+	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe testDiscardCard testNumHandCards testSupplyCount testIsGameOver 
