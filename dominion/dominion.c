@@ -1242,7 +1242,7 @@ int adventurer_effect(struct gameState *state, int currentPlayer){
     int temphand[MAX_HAND];
     int z = 0;
     int drawntreasure=0;
-    printf("Inside Adventurer \n");
+    //printf("Inside Adventurer \n");
     while(drawntreasure<2){
         if (state->deckCount[currentPlayer] <2){//if the deck is empty we need to shuffle discard and add to deck
             shuffle(currentPlayer, state);
