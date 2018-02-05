@@ -20,12 +20,7 @@ int checkGreatHallCard(int currentPlayer, struct gameState* gameReturned){
     if(assertStandardDom(gameExpected.numActions == gameReturned->numActions, "Actions inequal after additional")){
         return 1;
     }   
-    if(assertStandardDom(cardDrawn1 != 4 && cardDrawn1 != 5 && cardDrawn1 != 6, "Did not draw a treasure first")){
-        return 1;    
-    }
-     if(assertStandardDom(cardDrawn2 != 4 && cardDrawn2 != 5 && cardDrawn2 != 6, "Did not draw a treasure second")){
-        return 1;    
-    }
+    
     return 0;
 }
 
@@ -44,7 +39,7 @@ int main () {
   {
     for(i = 0; i < p; i++)
     {
-        printf("Testing Players: %i, Player: %i\n", p, i);
+        //printf("Testing Players: %i, Player: %i\n", p, i);
         initializeGame(2, k, 1, &G);
         G.hand[i][0] = 16; //place great_hall card into hand
         G.whoseTurn = i; //it's that person's turn
