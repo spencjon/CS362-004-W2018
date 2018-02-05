@@ -44,7 +44,7 @@ int main () {
   printf ("SIMPLE FIXED TESTS: Smithy Card\n");
   for (p = 2; p < 5; p++)
   {
-    for(i = 0; i < 4; i++)
+    for(i = 0; i < p; i++)
     {
         initializeGame(2, k, 1, &G);
         G.hand[i][0] = 13; //place smithy card into hand
