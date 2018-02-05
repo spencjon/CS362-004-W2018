@@ -6,7 +6,7 @@ rngs.o: rngs.h rngs.c
 dominion.o: dominion.h dominion.c rngs.o
 	gcc -c dominion.c -g  $(CFLAGS)
 
-assertDominionTest.o: assertDominionTest.h assertDominionTest.c dominion.o rngs.out
+assertDominionTest.o: assertDominionTest.h assertDominionTest.c dominion.o rngs.o
 	gcc -c assertDominionTest.c -g $(CFLAGS)
 
 playdom: dominion.o playdom.c
@@ -27,7 +27,7 @@ testDiscardCard: unittest1.c assertDominionTest.o dominion.o rngs.o
 testNumHandCards: unittest1.c assertDominionTest.o dominion.o rngs.o
 	gcc -o testNumHandCards -g  unittest2.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
-tesSupplyCount: unittest1.c assertDominionTest.o dominion.o rngs.o
+testSupplyCount: unittest1.c assertDominionTest.o dominion.o rngs.o
 	gcc -o tesSupplyCount -g unittest3.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
 testIsGameOver: unittest1.c assertDominionTest.o dominion.o rngs.o
