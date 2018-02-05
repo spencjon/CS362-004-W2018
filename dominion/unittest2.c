@@ -16,7 +16,7 @@ int checkNumHandCards(struct gameState *state)
 }
 
 int main(){
-  int p;
+  int p, i. r;
   int k[10] = {adventurer, council_room, feast, gardens, mine,
 	       remodel, smithy, village, baron, great_hall};
   struct gameState G;
@@ -27,11 +27,11 @@ int main(){
     for(i = 0; i < 4; i++){
       r = initializeGame(p, k, 1, &G);
       if(assertStandardDom((r == 0), "initializeGame failed")){
-        printf("Return Requested.. Returning... ")
+        printf("Return Requested.. Returning... ");
         return 1;
       }
       G.whoseTurn = i;
-      if(checkNumHandCards(gameState)){
+      if(checkNumHandCards(&G)){
         printf("Return Requested.. Returning...");
         return 1;
       } 
