@@ -64,9 +64,9 @@ int assertGameStateDom(int assertion, char* msg, struct gameState *pre, struct g
     return 0;
 }
 
-int assertStandardDom(int assertion, char* MSG)
+int assertStandardDom(int assertion, char* msg)
 {
-  char choice[1];
+  char choice;
   if(!assertion){
     printf("Assertion Failed: %s \n", msg);
     printf("Exit? (Y/n): ");
