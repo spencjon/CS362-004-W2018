@@ -33,7 +33,6 @@ void printGameState(struct gameState *state)
   }
 
 
-
 int assertGameStateDom(int assertion, char* msg, struct gameState *pre, struct gameState *post)
   {
     char choice;

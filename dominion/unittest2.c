@@ -32,13 +32,17 @@ int main(){
 
   for(p = 1; p < 5; p++){
     for(i = 0; i < 4; i++){
+      
+      printf("tmp 1");
       memset(&G, 23, sizeof(struct gameState));
       r = initializeGame(p, k, 1, &G);
       if(assertStandardDom((r == 0), msg)){
         printf("Return Requested.. Returning... ");
         return 1;
       }
+      printf("tmp 2");
       G.whoseTurn = i;
+      printf("tmp 3");
       if(checkNumHandCards(&G)){
         printf("Return Requested.. Returning...");
         return 1;
