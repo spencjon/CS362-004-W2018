@@ -37,19 +37,19 @@ int main(){
   printf ("Simple Fixed Tests\n");
 
   for(p = 1; p < 5; p++){
-    for(i = 0; i < 4; i++){
+    for(i = 0; i < 27; i++){
       r = initializeGame(p, k, 1, &G);
       if(assertStandardDom((r == 0), msg1)){
-        printf("Return Requested.. Returning... ");
+        printf("Return Requested.. Returning... \n");
         return 1;
       }
-      if(checkSupplyCount(G)){
-        printf("Return Requested.. Returning...");
+      if(checkSupplyCount(i, G)){
+        printf("Return Requested.. Returning... card number: %i \n", i);
         return 1;
       } 
     }
-    printf("Tests passed for %i players", i);
+    printf("Tests passed for %i cards\n", i);
   }
-  printf("Tests passed for all number of players");
+  printf("Tests passed for all number of players\n");
   return 0;
 }
