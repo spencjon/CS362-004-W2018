@@ -43,7 +43,7 @@ int main(){
         printf("Return Requested.. Returning... \n");
         return 1;
       }
-      if(checkSupplyCount(i, G)){
+      if(checkSupplyCount(i, &G)){
         printf("Return Requested.. Returning... card number: %i \n", i);
         return 1;
       } 
