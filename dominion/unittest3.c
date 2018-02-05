@@ -15,31 +15,31 @@ int supplyCount(int card, struct gameState *state) {
 
 int checkSupplyCount(int card, struct gameState* state) {
     int expectedCount, returnedCount, numPlayers;
-    char msg[] = "Too many Estate, Dutchy, or Province";
+    char msg1[] = "Too many Estate, Dutchy, or Province";
+    char msg2[] = "CheckSupplyCount, not equal";
     returnedCount = whoseTurn(state);
     expectedCount = state->supplyCount[card];
-    msg = "CheckSupplyCount, not equal";
-    if(assertStandardDom((int)(returnedCount == expectedCount), msg)) return 1;
+    if(assertStandardDom((int)(returnedCount == expectedCount), msg1)) return 1;
     numPlayers = state->numPlayers;
     if(numPlayers < 3)
       if(card >= 1 && card <= 3)
-          if(assertStandardDom((expectedCount > 8), msg)) return 1;
+          if(assertStandardDom((expectedCount > 8), msg2)) return 1;
   return 0;
 }
 
 
 int main(){
-  int p;
+  int p, i, r;
   int k[10] = {adventurer, council_room, feast, gardens, mine,
 	       remodel, smithy, village, baron, great_hall};
   struct gameState G;
-  char msg[] = "initializeGame failed";
+  char msg1[] = "initializeGame failed";
   printf ("Simple Fixed Tests\n");
 
   for(p = 1; p < 5; p++){
     for(i = 0; i < 4; i++){
       r = initializeGame(p, k, 1, &G);
-      if(assertStandardDom((r == 0), msg){
+      if(assertStandardDom((r == 0), msg1)){
         printf("Return Requested.. Returning... ")
         return 1;
       }
