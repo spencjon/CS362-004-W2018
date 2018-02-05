@@ -7,34 +7,23 @@
 #include "assertDominionTest.h"
 
 int checkGreatHallCard(int currentPlayer, struct gameState* gameReturned){    
-    int returned, cardDrawn1, cardDrawn2;
+    int returned;
     struct gameState gameExpected;
     memcpy (&gameExpected, gameReturned, sizeof(struct gameState));
-    printf("HandCount1: %i     2: %i    DeckCount1: %i      2: %i      \n", gameExpected.handCount[currentPlayer], gameReturned->handCount[currentPlayer], gameExpected.deckCount[currentPlayer], gameReturned->deckCount[currentPlayer] );
 
     returned = playCard(0,1,1,1,gameReturned);
     
     if(assertStandardDom(returned == 0, "Play Card Failed")){
         return 1;
     }
-    printf("HandCount1: %i     2: %i    DeckCount1: %i      2: %i      \n", gameExpected.handCount[currentPlayer], gameReturned->handCount[currentPlayer], gameExpected.deckCount[currentPlayer], gameReturned->deckCount[currentPlayer] );
-    gameExpected.handCount[currentPlayer] += 2;
-    gameExpected.deckCount[currentPlayer] -= 2;
-    printf("HandCount1: %i     2: %i    DeckCount1: %i      2: %i      \n", gameExpected.handCount[currentPlayer], gameReturned->handCount[currentPlayer], gameExpected.deckCount[currentPlayer], gameReturned->deckCount[currentPlayer] );
-    if (assertStandardDom(gameReturned->deckCount[currentPlayer] == gameExpected.deckCount[currentPlayer], "Deck Count Varies")){
+    gameExpected.numActions++;
+    if(assertStandardDom(gameExpected.numActions == gameReturned->numActions, "Actions inequal after additional")){
         return 1;
-    }
-    if (assertStandardDom(gameReturned->handCount[currentPlayer] == gameExpected.handCount[currentPlayer], "Hand Count Varies")){
-        return 1;
-    }
-
-    cardDrawn1 = gameReturned->hand[currentPlayer][gameReturned->handCount[currentPlayer]-1];
-    cardDrawn2 = gameReturned->hand[currentPlayer][gameReturned->handCount[currentPlayer]-2];
-    printf("CardDrawn1 %i, CardDrawn2 %i\n", cardDrawn1, cardDrawn2);
-    if(assertStandardDom(cardDrawn1 != copper && cardDrawn1 != silver && cardDrawn1 != gold, "Did not draw a treasure first")){
+    }   
+    if(assertStandardDom(cardDrawn1 != 4 && cardDrawn1 != 5 && cardDrawn1 != 6, "Did not draw a treasure first")){
         return 1;    
     }
-     if(assertStandardDom(cardDrawn2 != copper && cardDrawn2 != silver && cardDrawn2 != gold, "Did not draw a treasure second")){
+     if(assertStandardDom(cardDrawn2 != 4 && cardDrawn2 != 5 && cardDrawn2 != 6, "Did not draw a treasure second")){
         return 1;    
     }
     return 0;
@@ -57,7 +46,7 @@ int main () {
     {
         printf("Testing Players: %i, Player: %i\n", p, i);
         initializeGame(2, k, 1, &G);
-        G.hand[i][0] = 7; //place adventurer card into hand
+        G.hand[i][0] = 16; //place great_hall card into hand
         G.whoseTurn = i; //it's that person's turn
         
         if(checkGreatHallCard(i, &G))
