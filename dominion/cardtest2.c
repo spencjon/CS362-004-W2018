@@ -30,6 +30,7 @@ int checkAdventurerCard(int currentPlayer, struct gameState* gameReturned){
 
     cardDrawn1 = gameReturned->hand[currentPlayer][gameReturned->handCount[currentPlayer]-1];
     cardDrawn2 = gameReturned->hand[currentPlayer][gameReturned->handCount[currentPlayer]-2];
+    printf("CardDrawn1 %i, CardDrawn2 %i\n", cardDrawn1, cardDrawn2);
     if(assertStandardDom(cardDrawn1 != copper && cardDrawn1 != silver && cardDrawn1 != gold, "Did not draw a treasure first")){
         return 1;    
     }
