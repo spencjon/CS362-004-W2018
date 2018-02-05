@@ -33,23 +33,23 @@ int main(){
   for(p = 2; p < 5; p++){
     for(i = 0; i < 4; i++){
       
-      printf("tmp 1");
+      //printf("tmp 1");
       memset(&G, 23, sizeof(struct gameState));
       r = initializeGame(p, k, 1, &G);
       if(assertStandardDom((r == 0), msg)){
-        printf("Return Requested.. Returning... ");
+        printf("Return Requested.. Returning... \n");
         return 1;
       }
-      printf("tmp 2");
+      ///printf("tmp 2");
       G.whoseTurn = i;
-      printf("tmp 3");
+      //printf("tmp 3");
       if(checkNumHandCards(&G)){
         printf("Return Requested.. Returning...");
         return 1;
       } 
     }
-    printf("Tests passed for %i players", i);
+    printf("Tests passed for %i players\n", i);
   }
-  printf("Tests passed for all number of players");
+  printf("Tests passed for all number of players\n");
   return 0;
 }
