@@ -41,7 +41,7 @@ int main(){
 
   printf ("Simple Fixed Tests\n");
 
-  for(p = 1; p < 5; p++){
+  for(p = 2; p < 5; p++){
       r = initializeGame(p, k, 1, &G);
       if(assertStandardDom((r == 0), "initializeGame failed")){
         printf("Return Requested.. Returning... ")

@@ -44,7 +44,7 @@ int main(){
   char msg1[] = "initializeGame failed";
   printf ("Simple Fixed Tests\n");
 
-  for(p = 1; p < 5; p++){
+  for(p = 2; p < 5; p++){
     for(i = 0; i < 27; i++){
       r = initializeGame(p, k, 1, &G);
       printf("Before");
