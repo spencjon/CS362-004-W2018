@@ -6,10 +6,8 @@
 #include "rngs.h"
 #include "assertDominionTest.h"
 
-int checkAdventurerCard(int currentPlayer, struct gameState* gameReturned, struct gameState* gameExpected){
-  int checkSmithyCard(int currentPlayer, struct gameState* gameReturned){
-    
-    int returned;
+int checkAdventurerCard(int currentPlayer, struct gameState* gameReturned){    
+    int returned, cardDrawn1, cardDrawn2;
     struct gameState gameExpected;
     memcpy (&gameExpected, gameReturned, sizeof(struct gameState));
     returned = playCard(0,1,1,1,gameReturned);
