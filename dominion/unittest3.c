@@ -40,10 +40,10 @@ int main(){
     for(i = 0; i < 4; i++){
       r = initializeGame(p, k, 1, &G);
       if(assertStandardDom((r == 0), msg1)){
-        printf("Return Requested.. Returning... ")
+        printf("Return Requested.. Returning... ");
         return 1;
       }
-      if(checkSupplyCount(gameState)){
+      if(checkSupplyCount(G)){
         printf("Return Requested.. Returning...");
         return 1;
       } 
