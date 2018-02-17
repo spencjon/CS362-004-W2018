@@ -77,6 +77,11 @@ struct gameState {
    unless specified for other return, return 0 on success */
 
 struct gameState* newGame();
+int smithy_effect(int currentPlayer, struct gameState *state, int handPos); //
+int adventurer_effect(struct gameState *state, int currentPlayer); //
+int village_effect(int currentPlayer, struct gameState *state, int handPos); //
+int baron_effect(int currentPlayer, struct gameState *state, int handPos, int choice1); //
+int council_room_effect(int currentPlayer, struct gameState *state, int handPos); //
 
 int* kingdomCards(int k1, int k2, int k3, int k4, int k5, int k6, int k7,
 		  int k8, int k9, int k10);
@@ -85,7 +90,7 @@ int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
 		   struct gameState *state);
 /* Responsible for initializing all supplies, and shuffling deck and
    drawing starting hands for all players.  Check that 10 cards selected
-   are in fact (different) kingdom cards, and that numPlayers is valid. 
+   are in fact (different) kingdom cards, and that numPlayers is valid.
 
 Cards not in game should initialize supply position to -1 */
 
@@ -113,7 +118,7 @@ int fullDeckCount(int player, int card, struct gameState *state);
 /* Here deck = hand + discard + deck */
 
 int whoseTurn(struct gameState *state);
-
+_DOMINION_H
 int endTurn(struct gameState *state);
 /* Must do phase C and advance to next player; do not advance whose turn
    if game is over */
@@ -128,10 +133,5 @@ int getWinners(int players[MAX_PLAYERS], struct gameState *state);
 /* Set array position of each player who won (remember ties!) to
    1, others to 0 */
 
-int smithy(int currentPlayer, struct gameState *state, int handPos); //
-int adventurer(int drawntreasure, struct gameState *state, int currentPlayer); //
-int village(int currentPlayer, struct gameState *state, int handPos); //
-int baron(int currentPlayer, struct gameState *state, int handPos, int choice1); //
-int council_room(int currentPlayer, struct gameState *state, int handPos); //
 
 #endif

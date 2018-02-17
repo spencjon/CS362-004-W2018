@@ -1,10 +1,10 @@
-#include "dominion.h"
-#include "dominion_helpers.h"
-#include "rngs.h"
-#include "cards.h"
+#include <string.h>
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
+#include "dominion.h"
+#include "dominion_helpers.h"
+#include "rngs.h"
 
 int compare(const void* a, const void* b) {
   if (*(int*)a > *(int*)b)
@@ -40,7 +40,7 @@ int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
 
   int i;
   int j;
-  int it;			
+  //int it;			
   //set up random number generator
   SelectStream(1);
   PutSeed((long)randomSeed);
@@ -167,10 +167,10 @@ int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
       state->handCount[i] = 0;
       state->discardCount[i] = 0;
       //draw 5 cards
-      // for (j = 0; j < 5; j++)
-      //	{
-      //	  drawCard(i, state);
-      //	}
+      for (j = 0; j < 5; j++)
+      {
+      	  drawCard(i, state);
+      }
     }
   
   //set embargo tokens to 0 for all supply piles
@@ -190,9 +190,9 @@ int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
   //int it; move to top
 
   //Moved draw cards to here, only drawing at the start of a turn
-  for (it = 0; it < 5; it++){
-    drawCard(state->whoseTurn, state);
-  }
+  //for (it = 0; it < 5; it++){
+  //  drawCard(state->whoseTurn, state);
+  //}
 
   updateCoins(state->whoseTurn, state, 0);
 
@@ -656,9 +656,8 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
   int tributeRevealedCards[2] = {-1, -1};
   int temphand[MAX_HAND];// moved above the if statement
-  int drawntreasure=0;
-  int cardDrawn;
-  int z = 0;// this is the counter for the temp hand
+  
+  
   if (nextPlayer > (state->numPlayers - 1)){
     nextPlayer = 0;
   }
@@ -668,11 +667,10 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
   switch( card ) 
     {
     case adventurer:
-      return adventurer(drawntreasure, state, currentPlayer);
+      return adventurer_effect(state, currentPlayer);
 
     case council_room:
-
-      return council_room();
+      return council_room_effect(currentPlayer, state, handPos);
 			
     case feast:
       //gain card with cost up to 5
@@ -792,13 +790,13 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case smithy:
-      return smithy(currentPlayer, state, handPos);
+      return smithy_effect(currentPlayer, state, handPos);
 		
     case village:
-      return village(currentPlayer, state, handPos);
+      return village_effect(currentPlayer, state, handPos);
     
     case baron:
-      return baron(currentPlayer, state, handPos, choice1);
+      return baron_effect(currentPlayer, state, handPos, choice1);
 		
     case great_hall:
       //+1 Card
@@ -1227,18 +1225,24 @@ int updateCoins(int player, struct gameState *state, int bonus)
   return 0;
 }
 
-int smithy(int currentPlayer, struct gameState *state, int handPos){ //draw 3 cards
-    for (int i = 0; i < 3; i++)
-	{
-	  drawCard(currentPlayer, state);
-	}
-			
-      //discard card from hand
-      discardCard(handPos, currentPlayer, state, 0);
-      return -1;
+int smithy_effect(int currentPlayer, struct gameState *state, int handPos){ //draw 3 cards
+    int i;
+    for (i = 0; i < 3; i++)
+    {
+      drawCard(currentPlayer, state);
+    }
+        
+    //discard card from hand
+    discardCard(handPos, currentPlayer, state, 0);
+    return -1;
 }
 
-int adventurer(int drawntreasure, struct gameState *state, int currentPlayer){
+int adventurer_effect(struct gameState *state, int currentPlayer){
+    int cardDrawn;
+    int temphand[MAX_HAND];
+    int z = 0;
+    int drawntreasure=0;
+    //printf("Inside Adventurer \n");
     while(drawntreasure<2){
         if (state->deckCount[currentPlayer] <2){//if the deck is empty we need to shuffle discard and add to deck
             shuffle(currentPlayer, state);
@@ -1260,19 +1264,19 @@ int adventurer(int drawntreasure, struct gameState *state, int currentPlayer){
     return 0;
 }
 
-int village(int currentPlayer, struct gameState *state, int handPos){
+int village_effect(int currentPlayer, struct gameState *state, int handPos){
 //+1 Card
     drawCard(currentPlayer, state);
         
-    //+2 Actions
-    state->numActions = state->numActions + 3;
+    //+2 Actions 
+    state->numActions = state->numActions + 2;
         
     //discard played card from hand
     discardCard(handPos, currentPlayer, state, 0);
     return 0;
 }
 
-int baron(int currentPlayer, struct gameState *state, int handPos, int choice1){
+int baron_effect(int currentPlayer, struct gameState *state, int handPos, int choice1){
     state->numBuys++;//Increase buys by 1!
       if (choice1 > 0){//Boolean true or going to discard an estate
 	int p = 0;//Iterator for hand!
@@ -1322,9 +1326,11 @@ int baron(int currentPlayer, struct gameState *state, int handPos, int choice1){
     return 0;
 }
 
-int council_room(int currentPlayer, struct gameState *state, int handPos){
+int council_room_effect(int currentPlayer, struct gameState *state, int handPos){
+    int i;
+    
     //+4 Cards
-      for (int i = 0; i < 4; i++)
+      for (i = 0; i < 4; i++)
 	{
 	  drawCard(currentPlayer, state);
 	}
@@ -1333,7 +1339,7 @@ int council_room(int currentPlayer, struct gameState *state, int handPos){
       state->numBuys++;
 			
       //Each other player draws a card
-      for (int i = 0; i < state->numPlayers; i++)
+      for (i = 0; i < state->numPlayers; i++)
 	{
 	  if ( i != currentPlayer )
 	    {
