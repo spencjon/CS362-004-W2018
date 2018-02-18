@@ -29,12 +29,11 @@ struct gameState pre;
 
   if(numTreasure > 1){
     assert((pre.handCount[p]+1) == post->handCount[p]);
-    assert(post->hand[p][post->handCount-1] == copper || post->hand[p][post->handCount-1] == silver || post->hand[p][post->handCount-1] == gold);
-    assert(post->hand[p][post->handCount-2] == copper || post->hand[p][post->handCount-2] == silver || post->hand[p][post->handCount-2] == gold);
+    assert(((post->hand[p][post->handCount-1] == copper) || (post->hand[p][post->handCount-1] == silver) || (post->hand[p][post->handCount-1] == gold)));
+    assert(((post->hand[p][post->handCount-2] == copper) || (post->hand[p][post->handCount-2] == silver) || (post->hand[p][post->handCount-2] == gold)));
   } else if(numTreasure == 1){
     assert(pre.handCount[p] == post->handCount[p]);
-    assert(pre.deckCount[p] - post->deckCount);
-    assert(post->hand[p][post->handCount-1] == copper || post->hand[p][post->handCount-1] == silver || post->hand[p][post->handCount-1] == gold);
+    assert(((post->hand[p][post->handCount-1] == copper) || (post->hand[p][post->handCount-1] == silver) || (post->hand[p][post->handCount-1] == gold)));
   }else{
     assert((pre.handCount[p]-1) == post->handCount[p]);
   }
