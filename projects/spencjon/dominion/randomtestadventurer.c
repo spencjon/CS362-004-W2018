@@ -11,18 +11,20 @@ int checkAdventurer(int p, struct gameState *post){
 struct gameState pre;
 int preHandTreasure, postHandTreasure;
   memcpy (&pre, post, sizeof(struct gameState));
-  int r, i, numTreasure;
+  int r, i, numTreasure, handPos = -50;
   for(i = 0; i < pre.handCount[p]; i++){
     if(pre.hand[p][i] == adventurer){
       r = adventurer_effect(post, p, i);
+      handPos = i;
       break;
-    }
-    else{
-      return 0;
     }
   }  
 
   if(pre.handCount[p] == 0){
+    return 0;
+  }
+  if(handPos == -50){
+    printf("No Adventurer")
     return 0;
   }
 
