@@ -70,18 +70,18 @@ int assertStandardDom(int assertion, char* msg)
   char choice;
   if(!assertion){
     printf("Assertion Failed: %s \n", msg);
-    printf("Exit? (Y/n): ");
+    /*printf("Exit? (Y/n): ");
     //choice = getchar();
     choice = 'n';
-    printf("\n");
+    //printf("\n");
 
 
-    /*
+    
     cout << "Assertion Failed:" << MSG;
     cout << "Exit? (Y/N)";
     char choice;
     cin >> choice;
-    */
+    
     if(choice == 'Y' || choice == 'y'){
       return 1;
     }
@@ -89,6 +89,7 @@ int assertStandardDom(int assertion, char* msg)
     {
       return 0;
     }
+    */
   }
   return 0;
 }
