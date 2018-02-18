@@ -39,11 +39,12 @@ struct gameState pre;
   }
   assert((pre.playedCardCount+1) == post->playedCardCount);
   assert((pre.deckCount[p] - post->deckCount[p]) == (post->discardCount[p] - pre.discardCount[p] - 1));
+  return 0;
 }
 
 int main(){
 
-  int i, j, n, r, p;
+  int i, j, n, p;
   struct gameState G;
 
   printf ("Testing drawCard.\n");
@@ -71,6 +72,6 @@ int main(){
 
 
 
-
+    return 0;
 
 }
