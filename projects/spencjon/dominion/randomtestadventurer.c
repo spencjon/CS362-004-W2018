@@ -9,6 +9,7 @@
 
 int checkAdventurer(int p, struct gameState *post){
 struct gameState pre;
+int preHandTreasure, postHandTreasure;
   memcpy (&pre, post, sizeof(struct gameState));
   int r, i, numTreasure;
   for(i = 0; i < pre.handCount[p]; i++){
@@ -17,7 +18,7 @@ struct gameState pre;
       break;
     }
     else{
-      r = 0;
+      return 0;
     }
   }  
 
@@ -34,21 +35,32 @@ struct gameState pre;
           numTreasure++;
       }
   }
-  
+  preHandTreasure = 0;
+  postHandTreasure = 0;
+  for(i = 0; i < pre.handCount[p]; i++){
+    if(pre.hand[p][i] == adventurer){
+      preHandTreasure++
+    }
+  }
+  for(i = 0; i < post->handCount[p]; i++){
+    if(post->hand[p][i] == adventurer){
+      postHandTreasure++
+    }
+  }
 
   if(numTreasure > 1){
-    printf("Post: %i, Pre %i \n",post->handCount[p],pre.handCount[p]);
-    assertStandardDom(((pre.handCount[p])+1) == (post->handCount[p]), "Hand Counts inequal, enough treasure.");
-    assert(((post->hand[p][post->handCount[p]-1] == copper) || (post->hand[p][post->handCount[p]-1] == silver) || (post->hand[p][post->handCount[p]-1] == gold)));
-    assert(((post->hand[p][post->handCount[p]-2] == copper) || (post->hand[p][post->handCount[p]-2] == silver) || (post->hand[p][post->handCount[p]-2] == gold)));
+    printf("HandCount Post: %i, Pre %i \n",post->handCount[p],pre.handCount[p]);
+    printf("TreasureDelta: Post %i, PRe %i \n", postHandTreasure, preHandTreasure);
+    assertStandardDom(((pre.handCount[p]) + 1) == (post->handCount[p]), "Hand Counts inequal, enough treasure.");
+    assertStandardDom(((postHandTreasure - 2) == preHandTreasure), "Incorrect Number of pre/post hand treasure delta");
   } else if(numTreasure == 1){
-    assert(pre.handCount[p] == post->handCount[p]);
-    assert(((post->hand[p][post->handCount[p]-1] == copper) || (post->hand[p][post->handCount[p]-1] == silver) || (post->hand[p][post->handCount[p]-1] == gold)));
+    assertStandardDom(pre.handCount[p] == post->handCount[p]);
+    assertStandardDom(((postHandTreasure - 1) == preHandTreasure), "Incorrect Number of pre/post hand treasure delta");
   }else{
-    assert((pre.handCount[p]-1) == post->handCount[p]);
+    assertStandardDom((pre.handCount[p]-1) == post->handCount[p]);
   }
-  assert((pre.playedCardCount+1) == post->playedCardCount);
-  assert((pre.deckCount[p] - post->deckCount[p]) == (post->discardCount[p] - pre.discardCount[p] - 1));
+  assertStandardDom((pre.playedCardCount+1) == post->playedCardCount);
+  assertStandardDom((pre.deckCount[p] - post->deckCount[p]) == (post->discardCount[p] - pre.discardCount[p] - 1));
   return 0;
 }
 
