@@ -1,10 +1,4 @@
 #include "dominion.h"
-#include "dominion_helpers.h"
-#include <string.h>
-#include <stdio.h>
-#include <assert.h>
-#include <math.h>
-#include "rngs.h"
 
 int checkAdventurer(int p, struct gameState *post){
 struct gameState pre;
