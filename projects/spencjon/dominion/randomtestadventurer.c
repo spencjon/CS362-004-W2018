@@ -72,8 +72,5 @@ int main(){
 
   printf ("ALL TESTS OK\n");
 
-
-
   return 0;
-
 }

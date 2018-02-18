@@ -667,7 +667,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
   switch( card ) 
     {
     case adventurer:
-      return adventurer_effect(state, currentPlayer);
+      return adventurer_effect(state, currentPlayer, handPos);
 
     case council_room:
       return council_room_effect(currentPlayer, state, handPos);
@@ -1237,7 +1237,7 @@ int smithy_effect(int currentPlayer, struct gameState *state, int handPos){ //dr
     return -1;
 }
 
-int adventurer_effect(struct gameState *state, int currentPlayer){
+int adventurer_effect(struct gameState *state, int currentPlayer, int handPos){
     int cardDrawn;
     int temphand[MAX_HAND];
     int z = 0;
@@ -1261,6 +1261,7 @@ int adventurer_effect(struct gameState *state, int currentPlayer){
         state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[z-1]; // discard all cards in play that have been drawn
         z=z-1;
     }
+    discardCard(handPos, currentPlayer, state, 0);
     return 0;
 }
 
