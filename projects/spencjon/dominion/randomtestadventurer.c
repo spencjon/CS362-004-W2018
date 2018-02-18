@@ -82,12 +82,10 @@ int main(){
 
   printf ("Testing adventurer effect.\n");
 
-  printf ("RANDOM TESTS.123\n");
-
-  printf("testing adventurer\n");
+  printf ("RANDOM TESTS.\n");
 
   for (n = 0; n < 2000; n++) {
-    p = floor(Random() * 2);
+    p = floor(Random() * MAX_PLAYERS);
     G.deckCount[p] = floor(Random() * MAX_DECK);
     G.discardCount[p] = floor(Random() * MAX_DECK);
     G.handCount[p] = floor(Random() * MAX_HAND);
