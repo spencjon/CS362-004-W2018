@@ -86,6 +86,7 @@ int main(){
 
   SelectStream(2);
   PutSeed(3);
+    printf("testing adventurer");
 
   for (n = 0; n < 2000; n++) {
     p = floor(Random() * 2);
