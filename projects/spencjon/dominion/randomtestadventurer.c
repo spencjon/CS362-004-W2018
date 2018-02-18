@@ -78,8 +78,6 @@ int main(){
 
   int i, n, p, adventurerFlag = 0;
   struct gameState G;
-  int k[10] = {adventurer, council_room, feast, gardens, mine,
-	       remodel, smithy, village, baron, great_hall};
 
   printf ("Testing drawCard.\n");
 
