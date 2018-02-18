@@ -116,7 +116,7 @@ int main(){
       }
       G.hand[p][i] = adventurer;
     }
-    printf("%i) ", n);
+    printf("testing adventurer");
     checkAdventurer(p, &G);
   }
 
