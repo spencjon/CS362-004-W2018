@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include "rngs.h"
-
+#include <math.h>
 
 int checkAdventurer(int p, struct gameState *post){
 struct gameState pre;
@@ -39,7 +39,7 @@ struct gameState pre;
   }
   assert((pre.playedCardCount+1) == post->playedCardCount);
   assert((pre.deckCount[p] - post->deckCount[p]) == (post->discardCount[p] - pre.discardCount[p] - 1));
-  return 0;
+
 }
 
 int main(){
