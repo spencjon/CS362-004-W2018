@@ -54,10 +54,10 @@ int preHandTreasure, postHandTreasure;
     assertStandardDom(((pre.handCount[p]) + 1) == (post->handCount[p]), "Hand Counts inequal, enough treasure.");
     assertStandardDom(((postHandTreasure - 2) == preHandTreasure), "Incorrect Number of pre/post hand treasure delta");
   } else if(numTreasure == 1){
-    assertStandardDom(pre.handCount[p] == post->handCount[p]);
+    assertStandardDom(pre.handCount[p] == post->handCount[p], "Hand Counts inequal, one treasure.");
     assertStandardDom(((postHandTreasure - 1) == preHandTreasure), "Incorrect Number of pre/post hand treasure delta");
   }else{
-    assertStandardDom((pre.handCount[p]-1) == post->handCount[p], "Hand Counts inequal, enough treasure.");
+    assertStandardDom((pre.handCount[p]-1) == post->handCount[p], "Hand Counts inequal, no treasure.");
   }
   return 0;
 }
