@@ -3,8 +3,8 @@
 #include <string.h>
 #include <stdio.h>
 #include <assert.h>
-#include "rngs.h"
 #include <math.h>
+#include "rngs.h"
 
 int checkAdventurer(int p, struct gameState *post){
 struct gameState pre;
