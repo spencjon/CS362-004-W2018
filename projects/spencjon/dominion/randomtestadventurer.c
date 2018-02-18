@@ -27,7 +27,7 @@ int preHandTreasure, postHandTreasure;
     printf("No Adventurer\n");
     return 0;
   }
-  past("Past %s \n", "incompatible arguments");
+  printf("Past %s \n", "incompatible arguments");
   assertStandardDom(r == 0, "Adventurer Returned not 0");
   numTreasure = 0;
   for(i = 0; i < pre.deckCount[p]; i++){
@@ -35,14 +35,14 @@ int preHandTreasure, postHandTreasure;
           numTreasure++;
       }
   }
-  past("Past %s \n", "deck num treasuer");
+  printf("Past %s \n", "deck num treasuer");
 
   for(i = 0; i < pre.discardCount[p]; i++){
       if(pre.discard[p][i] == copper || pre.discard[p][i] == silver || pre.discard[p][i] == gold){
           numTreasure++;
       }
   }
-  past("Past %s \n", "discard num treasuer");
+  printf("Past %s \n", "discard num treasuer");
 
   preHandTreasure = 0;
   postHandTreasure = 0;
@@ -51,14 +51,14 @@ int preHandTreasure, postHandTreasure;
       preHandTreasure++;
     }
   }
-  past("Past %s \n", "prehand num treasuer");
+  printf("Past %s \n", "prehand num treasuer");
 
   for(i = 0; i < post->handCount[p]; i++){
     if(post->hand[p][i] == adventurer){
       postHandTreasure++;
     }
   }
-  past("Past %s \n", "posthand num treasuer");
+  printf("Past %s \n", "posthand num treasuer");
 
   if(numTreasure > 1){
     printf("HandCount Post: %i, Pre %i \n",post->handCount[p],pre.handCount[p]);
