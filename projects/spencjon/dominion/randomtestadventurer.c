@@ -71,7 +71,10 @@ int main(){
 
   int i, n, p, adventurerFlag = 0;
   struct gameState G;
+  int k[10] = {adventurer, council_room, feast, gardens, mine,
+	       remodel, smithy, village, baron, great_hall};
 
+  initializeGame(2, as, 2, G);
   printf ("Testing drawCard.\n");
 
   printf ("RANDOM TESTS.\n");
@@ -90,6 +93,7 @@ int main(){
     for(i = 0; i < G.deckCount[p]; i++){
         G.deck[p][i] = floor(Random() * treasure_map);
     }
+    printf("%i) ", n);
     for(i = 0; i < G.discardCount[p]; i++){
       G.discard[p][i] = floor(Random() * treasure_map);
     }
