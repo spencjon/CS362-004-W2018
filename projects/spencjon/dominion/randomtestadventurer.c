@@ -23,7 +23,7 @@ int preHandTreasure, postHandTreasure;
   }  
 
   
-  assert (r == 0);
+  assertStandardDom(r == 0, "Adventurer Returned not 0");
   numTreasure = 0;
   for(i = 0; i < pre.deckCount[p]; i++){
       if(pre.deck[p][i] == copper || pre.deck[p][i] == silver || pre.deck[p][i] == gold){
