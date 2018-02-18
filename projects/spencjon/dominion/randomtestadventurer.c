@@ -100,7 +100,7 @@ int main(){
     }
     if(!adventurerFlag){
       i = floor(Random() * G.handCount[p]);
-      if(i == G.handcount[p]){
+      if(i == G.handCount[p]){
         i--;
       }
       G.hand[p][i] = adventurer;
