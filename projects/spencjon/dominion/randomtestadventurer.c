@@ -85,6 +85,7 @@ int main(){
     for(j = 0; j < G.deckCount[p]; j++){
         G.deck[p][j] = floor(Random() * treasure_map);
     }
+    printf("TEST \n");
     checkAdventurer(p, &G);
   }
 
