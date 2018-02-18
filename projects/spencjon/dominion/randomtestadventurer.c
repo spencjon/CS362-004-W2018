@@ -115,7 +115,6 @@ int main(){
       G.hand[p][i] = adventurer;
     }
     printf("Past setting up the adventurer\n");
-    printf("%i) ", n);
     checkAdventurer(p, &G);
   }
 
