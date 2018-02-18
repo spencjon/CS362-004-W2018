@@ -79,8 +79,8 @@ int main(){
 
   int i, n, p, adventurerFlag = 0;
   struct gameState G;
-a
-  printf ("Testing drawCard.\n");
+
+  printf ("Testing adventurer effect.\n");
 
   printf ("RANDOM TESTS.\n");
 
