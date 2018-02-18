@@ -94,21 +94,29 @@ int main(){
     G.handCount[p] = floor(Random() * MAX_HAND);
     //G.deck = (int**)malloc((p+1) *sizeof(int*));
     //G.deck[p] = (int**)malloc(MAX_DECK * sizeof(int)); 
+    printf("1testing adventurer");
+
     for(i = 0; i < G.deckCount[p]; i++){
         G.deck[p][i] = floor(Random() * treasure_map);
     }
     //G.discard = (int[MAX_PLAYERS][MAX_DECK])malloc((p+1) *sizeof(int*));
     //G.discard[p] = (int[MAX_DECK])malloc(MAX_DECK * sizeof(int)); 
+    printf("2testing adventurer");
+
     for(i = 0; i < G.discardCount[p]; i++){
       G.discard[p][i] = floor(Random() * treasure_map);
     }
     //G.hand = (int**)malloc((p+1) *sizeof(int*));
     //G.hand[p] = (int**)malloc(MAX_HAND * sizeof(int)); 
+    printf("3testing adventurer");
+
     for(i = 0; i < G.handCount[p]; i++){
       if(adventurer == drawCard(p, &G)){
         adventurerFlag = 1;
       }
     }
+    printf("4testing adventurer");
+
     if(!adventurerFlag){
       i = floor(Random() * G.handCount[p]);
       if(i == G.handCount[p]){
@@ -116,7 +124,7 @@ int main(){
       }
       G.hand[p][i] = adventurer;
     }
-    printf("testing adventurer");
+    printf("5testing adventurer");
     checkAdventurer(p, &G);
   }
 
