@@ -24,7 +24,7 @@ int preHandTreasure, postHandTreasure;
     return 0;
   }
   if(handPos == -50){
-    printf("No Adventurer")
+    printf("No Adventurer");
     return 0;
   }
 
