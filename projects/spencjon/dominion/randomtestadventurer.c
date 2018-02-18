@@ -82,10 +82,8 @@ int main(){
 
   printf ("Testing adventurer effect.\n");
 
-  printf ("RANDOM TESTS.\n");
+  printf ("RANDOM TESTS.123\n");
 
-  
-  
   printf("testing adventurer\n");
 
   for (n = 0; n < 2000; n++) {
