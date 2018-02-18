@@ -74,7 +74,7 @@ int main(){
   int k[10] = {adventurer, council_room, feast, gardens, mine,
 	       remodel, smithy, village, baron, great_hall};
 
-  initializeGame(2, as, 2, G);
+  initializeGame(2, k, 2, &G);
   printf ("Testing drawCard.\n");
 
   printf ("RANDOM TESTS.\n");
