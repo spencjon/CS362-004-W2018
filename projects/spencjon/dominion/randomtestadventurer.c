@@ -74,7 +74,6 @@ int main(){
   int k[10] = {adventurer, council_room, feast, gardens, mine,
 	       remodel, smithy, village, baron, great_hall};
 
-  initializeGame(2, k, 2, &G);
   printf ("Testing drawCard.\n");
 
   printf ("RANDOM TESTS.\n");
@@ -86,17 +85,23 @@ int main(){
     for (i = 0; i < sizeof(struct gameState); i++) {
       ((char*)&G)[i] = floor(Random() * 256);
     }
+    printf("")
     p = floor(Random() * 2);
     G.deckCount[p] = floor(Random() * MAX_DECK);
     G.discardCount[p] = floor(Random() * MAX_DECK);
     G.handCount[p] = floor(Random() * MAX_HAND);
+    G.deck = (int**)malloc((p+1) *sizeof(int*));
+    G.deck[p] = (int**)malloc(MAX_DECK * sizeof(int)); 
     for(i = 0; i < G.deckCount[p]; i++){
         G.deck[p][i] = floor(Random() * treasure_map);
     }
-    printf("%i) ", n);
+    G.discard = (int**)malloc((p+1) *sizeof(int*));
+    G.discard[p] = (int**)malloc(MAX_DECK * sizeof(int)); 
     for(i = 0; i < G.discardCount[p]; i++){
       G.discard[p][i] = floor(Random() * treasure_map);
     }
+    G.hand = (int**)malloc((p+1) *sizeof(int*));
+    G.hand[p] = (int**)malloc(MAX_HAND * sizeof(int)); 
     for(i = 0; i < G.handCount[p]; i++){
       if(adventurer == drawCard(p, &G)){
         adventurerFlag = 1;
