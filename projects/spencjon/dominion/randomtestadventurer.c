@@ -99,7 +99,7 @@ int main(){
       }
     }
     if(!adventurerFlag){
-      i = floor(Random() * G.handCount[p])
+      i = floor(Random() * G.handCount[p]);
       if(i == G.handcount[p]){
         i--;
       }
