@@ -29,11 +29,11 @@ struct gameState pre;
 
   if(numTreasure > 1){
     assert((pre.handCount[p]+1) == post->handCount[p]);
-    assert(((post->hand[p][post->handCount-1] == copper) || (post->hand[p][post->handCount-1] == silver) || (post->hand[p][post->handCount-1] == gold)));
-    assert(((post->hand[p][post->handCount-2] == copper) || (post->hand[p][post->handCount-2] == silver) || (post->hand[p][post->handCount-2] == gold)));
+    assert(((post->hand[p][post->handCount[p]-1] == copper) || (post->hand[p][post->handCount[p]-1] == silver) || (post->hand[p][post->handCount[p]-1] == gold)));
+    assert(((post->hand[p][post->handCount[p]-2] == copper) || (post->hand[p][post->handCount[p]-2] == silver) || (post->hand[p][post->handCount[p]-2] == gold)));
   } else if(numTreasure == 1){
     assert(pre.handCount[p] == post->handCount[p]);
-    assert(((post->hand[p][post->handCount-1] == copper) || (post->hand[p][post->handCount-1] == silver) || (post->hand[p][post->handCount-1] == gold)));
+    assert(((post->hand[p][post->handCount[p]-1] == copper) || (post->hand[p][post->handCount[p]-1] == silver) || (post->hand[p][post->handCount[p]-1] == gold)));
   }else{
     assert((pre.handCount[p]-1) == post->handCount[p]);
   }
@@ -43,11 +43,7 @@ struct gameState pre;
 
 int main(){
 
-  int i, j, n, r, p, deckCount, discardCount, handCount;
-
-  int k[10] = {adventurer, council_room, feast, gardens, mine,
-	       remodel, smithy, village, baron, great_hall};
-
+  int i, j, n, r, p;
   struct gameState G;
 
   printf ("Testing drawCard.\n");
