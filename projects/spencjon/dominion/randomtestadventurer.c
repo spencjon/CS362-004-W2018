@@ -22,7 +22,9 @@ int preHandTreasure, postHandTreasure;
     }
   }  
 
-  
+  if(handCount == 0){
+    return 0;
+  }
   assertStandardDom(r == 0, "Adventurer Returned not 0");
   numTreasure = 0;
   for(i = 0; i < pre.deckCount[p]; i++){
