@@ -22,7 +22,7 @@ int preHandTreasure, postHandTreasure;
     }
   }  
 
-  if(handCount == 0){
+  if(pre.handCount[p] == 0){
     return 0;
   }
 
