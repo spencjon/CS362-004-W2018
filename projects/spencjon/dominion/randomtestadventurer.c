@@ -69,7 +69,7 @@ int preHandTreasure, postHandTreasure;
 
 int main(){
 
-  int i, j, n, p;
+  int i, j, n, p, adventurerFlag = 0;
   struct gameState G;
 
   printf ("Testing drawCard.\n");
@@ -89,6 +89,17 @@ int main(){
     G.handCount[p] = floor(Random() * MAX_HAND);
     for(j = 0; j < G.deckCount[p]; j++){
         G.deck[p][j] = floor(Random() * treasure_map);
+    }
+    for(j = 0; j < G.discardCount[p]; j++){
+      G.discard[p][j] = floor(Random() * treasure_map);
+    }
+    for(j = 0; j < G.handCount[p]; j++){
+      if(adventurer == drawCard(p, &G)){
+        adventurerFlag = 1;
+      }
+    }
+    if(!adventurerFlag){
+      G.hand[p][floor(Random() * (handCount-1))] = adventurer;
     }
     printf("%i) ", n);
     checkAdventurer(p, &G);
