@@ -10,7 +10,7 @@
 int checkAdventurer(int p, struct gameState *post){
 struct gameState pre;
   memcpy (&pre, post, sizeof(struct gameState));
-  int r, i, handCount, numTreasure;
+  int r, i, numTreasure;
   for(i = 0; i < pre.handCount[p]; i++){
     if(pre.hand[p][i] == adventurer){
       r = adventurer_effect(post, p, i);
