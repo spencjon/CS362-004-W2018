@@ -39,12 +39,12 @@ int preHandTreasure, postHandTreasure;
   postHandTreasure = 0;
   for(i = 0; i < pre.handCount[p]; i++){
     if(pre.hand[p][i] == adventurer){
-      preHandTreasure++
+      preHandTreasure++;
     }
   }
   for(i = 0; i < post->handCount[p]; i++){
     if(post->hand[p][i] == adventurer){
-      postHandTreasure++
+      postHandTreasure++;
     }
   }
 
