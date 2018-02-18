@@ -19,7 +19,7 @@ int preHandTreasure, postHandTreasure;
       break;
     }
   }  
-
+  printf("Past setup");
   if(pre.handCount[p] == 0){
     return 0;
   }
@@ -27,7 +27,7 @@ int preHandTreasure, postHandTreasure;
     printf("No Adventurer\n");
     return 0;
   }
-
+  past("Past %s \n", "incompatible arguments");
   assertStandardDom(r == 0, "Adventurer Returned not 0");
   numTreasure = 0;
   for(i = 0; i < pre.deckCount[p]; i++){
@@ -35,11 +35,15 @@ int preHandTreasure, postHandTreasure;
           numTreasure++;
       }
   }
+  past("Past %s \n", "deck num treasuer");
+
   for(i = 0; i < pre.discardCount[p]; i++){
       if(pre.discard[p][i] == copper || pre.discard[p][i] == silver || pre.discard[p][i] == gold){
           numTreasure++;
       }
   }
+  past("Past %s \n", "discard num treasuer");
+
   preHandTreasure = 0;
   postHandTreasure = 0;
   for(i = 0; i < pre.handCount[p]; i++){
@@ -47,11 +51,14 @@ int preHandTreasure, postHandTreasure;
       preHandTreasure++;
     }
   }
+  past("Past %s \n", "prehand num treasuer");
+
   for(i = 0; i < post->handCount[p]; i++){
     if(post->hand[p][i] == adventurer){
       postHandTreasure++;
     }
   }
+  past("Past %s \n", "posthand num treasuer");
 
   if(numTreasure > 1){
     printf("HandCount Post: %i, Pre %i \n",post->handCount[p],pre.handCount[p]);
@@ -86,19 +93,16 @@ int main(){
     G.deckCount[p] = floor(Random() * MAX_DECK);
     G.discardCount[p] = floor(Random() * MAX_DECK);
     G.handCount[p] = floor(Random() * MAX_HAND);
-    printf("Past setting up the counts\n");
     //G.deck = (int**)malloc((p+1) *sizeof(int*));
     //G.deck[p] = (int**)malloc(MAX_DECK * sizeof(int)); 
     for(i = 0; i < G.deckCount[p]; i++){
         G.deck[p][i] = floor(Random() * treasure_map);
     }
-    printf("Past setting up the deck\n");
     //G.discard = (int[MAX_PLAYERS][MAX_DECK])malloc((p+1) *sizeof(int*));
     //G.discard[p] = (int[MAX_DECK])malloc(MAX_DECK * sizeof(int)); 
     for(i = 0; i < G.discardCount[p]; i++){
       G.discard[p][i] = floor(Random() * treasure_map);
     }
-    printf("Past setting up the discard\n");
     //G.hand = (int**)malloc((p+1) *sizeof(int*));
     //G.hand[p] = (int**)malloc(MAX_HAND * sizeof(int)); 
     for(i = 0; i < G.handCount[p]; i++){
@@ -106,7 +110,6 @@ int main(){
         adventurerFlag = 1;
       }
     }
-    printf("Past setting up the hand\n");
     if(!adventurerFlag){
       i = floor(Random() * G.handCount[p]);
       if(i == G.handCount[p]){
@@ -114,7 +117,7 @@ int main(){
       }
       G.hand[p][i] = adventurer;
     }
-    printf("Past setting up the adventurer\n");
+    printf("%i) ", n);
     checkAdventurer(p, &G);
   }
 
