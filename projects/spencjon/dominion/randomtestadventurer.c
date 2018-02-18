@@ -86,7 +86,7 @@ int main(){
 
   
   
-  printf("testing adventurer");
+  printf("testing adventurer\n");
 
   for (n = 0; n < 2000; n++) {
     p = floor(Random() * 2);
