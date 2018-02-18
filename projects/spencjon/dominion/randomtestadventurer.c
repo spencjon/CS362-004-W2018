@@ -7,9 +7,10 @@
 #include "rngs.h"
 #include <math.h>
 
-int checkAdventurer(int p, struct gameState *post){
-struct gameState pre;
-int preHandTreasure, postHandTreasure;
+int checkAdventurer(int p, struct gameState *post){ 
+  struct gameState pre;
+  int preHandTreasure, postHandTreasure;
+  printf("Going into setup");
   memcpy (&pre, post, sizeof(struct gameState));
   int r, i, numTreasure, handPos = -50;
   for(i = 0; i < pre.handCount[p]; i++){
@@ -78,7 +79,7 @@ int main(){
 
   int i, n, p, adventurerFlag = 0;
   struct gameState G;
-
+a
   printf ("Testing drawCard.\n");
 
   printf ("RANDOM TESTS.\n");
