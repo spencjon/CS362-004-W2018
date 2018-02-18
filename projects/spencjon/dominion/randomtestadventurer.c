@@ -57,10 +57,8 @@ int preHandTreasure, postHandTreasure;
     assertStandardDom(pre.handCount[p] == post->handCount[p]);
     assertStandardDom(((postHandTreasure - 1) == preHandTreasure), "Incorrect Number of pre/post hand treasure delta");
   }else{
-    assertStandardDom((pre.handCount[p]-1) == post->handCount[p]);
+    assertStandardDom((pre.handCount[p]-1) == post->handCount[p], "Hand Counts inequal, enough treasure.");
   }
-  assertStandardDom((pre.playedCardCount+1) == post->playedCardCount);
-  assertStandardDom((pre.deckCount[p] - post->deckCount[p]) == (post->discardCount[p] - pre.discardCount[p] - 1));
   return 0;
 }
 
