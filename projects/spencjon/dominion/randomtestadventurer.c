@@ -82,31 +82,31 @@ int main(){
   PutSeed(3);
 
   for (n = 0; n < 2000; n++) {
-    for (i = 0; i < sizeof(struct gameState); i++) {
-      ((char*)&G)[i] = floor(Random() * 256);
-    }
-    printf("")
     p = floor(Random() * 2);
     G.deckCount[p] = floor(Random() * MAX_DECK);
     G.discardCount[p] = floor(Random() * MAX_DECK);
     G.handCount[p] = floor(Random() * MAX_HAND);
-    G.deck = (int**)malloc((p+1) *sizeof(int*));
-    G.deck[p] = (int**)malloc(MAX_DECK * sizeof(int)); 
+    printf("Past setting up the counts\n");
+    //G.deck = (int**)malloc((p+1) *sizeof(int*));
+    //G.deck[p] = (int**)malloc(MAX_DECK * sizeof(int)); 
     for(i = 0; i < G.deckCount[p]; i++){
         G.deck[p][i] = floor(Random() * treasure_map);
     }
-    G.discard = (int**)malloc((p+1) *sizeof(int*));
-    G.discard[p] = (int**)malloc(MAX_DECK * sizeof(int)); 
+    printf("Past setting up the deck\n");
+    //G.discard = (int[MAX_PLAYERS][MAX_DECK])malloc((p+1) *sizeof(int*));
+    //G.discard[p] = (int[MAX_DECK])malloc(MAX_DECK * sizeof(int)); 
     for(i = 0; i < G.discardCount[p]; i++){
       G.discard[p][i] = floor(Random() * treasure_map);
     }
-    G.hand = (int**)malloc((p+1) *sizeof(int*));
-    G.hand[p] = (int**)malloc(MAX_HAND * sizeof(int)); 
+    printf("Past setting up the discard\n");
+    //G.hand = (int**)malloc((p+1) *sizeof(int*));
+    //G.hand[p] = (int**)malloc(MAX_HAND * sizeof(int)); 
     for(i = 0; i < G.handCount[p]; i++){
       if(adventurer == drawCard(p, &G)){
         adventurerFlag = 1;
       }
     }
+    printf("Past setting up the hand\n");
     if(!adventurerFlag){
       i = floor(Random() * G.handCount[p]);
       if(i == G.handCount[p]){
@@ -114,6 +114,7 @@ int main(){
       }
       G.hand[p][i] = adventurer;
     }
+    printf("Past setting up the adventurer\n");
     printf("%i) ", n);
     checkAdventurer(p, &G);
   }
