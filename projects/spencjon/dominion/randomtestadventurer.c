@@ -24,7 +24,7 @@ int preHandTreasure, postHandTreasure;
     return 0;
   }
   if(handPos == -50){
-    printf("No Adventurer");
+    printf("No Adventurer\n");
     return 0;
   }
 
@@ -90,6 +90,7 @@ int main(){
     for(j = 0; j < G.deckCount[p]; j++){
         G.deck[p][j] = floor(Random() * treasure_map);
     }
+    printf("%i) ", n);
     checkAdventurer(p, &G);
   }
 
