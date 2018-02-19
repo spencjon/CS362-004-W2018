@@ -10,7 +10,6 @@
 int checkVillage(int p, struct gameState *post){
     struct gameState pre;
   int r, i;
-
   //printf("Going into setup\n");
   memcpy(&pre, post, sizeof(struct gameState));
  // printf("Going into setup\n");
@@ -50,6 +49,7 @@ int main(){
     G.deckCount[p] = numCards - floor(Random() * MAX_DECK);
     G.discardCount[p] = floor(Random() * (numCards - G.deckCount[p]));
     G.handCount[p] = numCards - G.deckCount[p] - G.discardCount[p];
+    G.numActions = floor(Random() * 100);
     if(G.handCount[p] < 1){
         G.handCount[p] = 1;
         if(G.discardCount[p] < 1)
