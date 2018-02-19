@@ -86,6 +86,9 @@ int main(){
   printf ("RANDOM TESTS.\n");
 
   for (n = 0; n < 2000; n++) {
+    for (i = 0; i < sizeof(struct gameState); i++) {
+      ((char*)&G)[i] = floor(Random() * 256);
+    }
     p = floor(Random() * MAX_PLAYERS);
     numCards = floor(Random() * MAX_DECK);
     G.deckCount[p] = numCards - floor(Random() * numCards);
@@ -113,7 +116,7 @@ int main(){
         smithyFlag = 1;
       }
     }
-
+    G.playedCardCount = 0;
     if(!smithyFlag){
       i = floor(Random() * G.handCount[p]);
       G.hand[p][i] = smithy;
