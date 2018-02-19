@@ -56,6 +56,8 @@ int main(){
         else 
             G.deckCount[p]--;
     }
+    printf("handCount: %i  %i Deck count: %i %i\n", R.handCount[p], G.handCount[p], (R.discardCount[p] + R.deckCount[p]), (G.discardCount[p] + G.deckCount[p]));
+
     G.playedCardCount = 0;
     for(i = 0; i < G.deckCount[p]; i++){
         G.deck[p][i] = floor(Random() * treasure_map);
@@ -75,6 +77,8 @@ int main(){
       i = floor(Random() * G.handCount[p]);
       G.hand[p][i] = smithy;
     }
+    printf("handCount: %i  %i Deck count: %i %i\n", R.handCount[p], G.handCount[p], (R.discardCount[p] + R.deckCount[p]), (G.discardCount[p] + G.deckCount[p]));
+
     memcpy(&R, &G, sizeof(struct gameState));
     checkSmithy(p, &G);
     fflush(stdout);
