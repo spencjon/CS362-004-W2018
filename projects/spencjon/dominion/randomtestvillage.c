@@ -39,7 +39,7 @@ int main(){
   int i, n, p, numCards, villageFlag = 0;
   struct gameState G;
 
-  printf ("Testing villager effect.\n");
+  printf ("Testing village effect.\n");
 
   printf ("RANDOM TESTS.\n");
 

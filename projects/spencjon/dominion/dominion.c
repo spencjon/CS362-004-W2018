@@ -1234,7 +1234,7 @@ int smithy_effect(int currentPlayer, struct gameState *state, int handPos){ //dr
         
     //discard card from hand
     discardCard(handPos, currentPlayer, state, 0);
-    return -1;
+    return 0;
 }
 
 int adventurer_effect(struct gameState *state, int currentPlayer , int handPos){
@@ -1265,7 +1265,7 @@ int adventurer_effect(struct gameState *state, int currentPlayer , int handPos){
 }
 
 int village_effect(int currentPlayer, struct gameState *state, int handPos){
-//+1 Card
+    //+1 Card
     drawCard(currentPlayer, state);
         
     //+2 Actions 

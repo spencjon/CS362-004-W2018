@@ -7,8 +7,35 @@
 #include "rngs.h"
 #include <math.h>
 
+int checkSmithy(int p, struct gameState *post){
+  struct gameState pre;
+  int r, i;
+  //printf("Going into setup\n");
+  memcpy(&pre, post, sizeof(struct gameState));
+ // printf("Going into setup\n");
+  for(i = 0; i < pre.handCount[p]; i++){
+    r = -50;
+    if(pre.hand[p][i] == smithy){
+      //printf("Found Card \n");
+      r = smithy_effect(post, p, i);
+      break;
+    }
+  }  
+  if(pre.handCount[p] == 0){
+    return 0;
+  }
+    printf("handCount: %i  %i\n", pre.handCount[p], post->handCount[p]);
+    assertStandardDom(r < 0, "smithy Returned more than 0");
+    assertStandardDom(post->handCount[p]==(pre.handCount[p] + 2),"rand smithy: Hand Count incorrect");
+    assertStandardDom((pre.discardCount[p] + pre.deckCount[p] - 2)  == (post->discardCount[p] + post->deckCount[p]), "rand smithy: incorrect deck/discard counts");
+  
+  return 0;
+}
+
+
 int main(){
- int i, n, p, villageFlag = 0;
+
+  int i, n, p, numCards, smithyFlag = 0;
   struct gameState G;
 
   printf ("Testing smithy effect.\n");
@@ -17,9 +44,18 @@ int main(){
 
   for (n = 0; n < 2000; n++) {
     p = floor(Random() * MAX_PLAYERS);
-    G.deckCount[p] = floor(Random() * MAX_DECK);
-    G.discardCount[p] = floor(Random() * MAX_DECK);
-    G.handCount[p] = floor(Random() * MAX_HAND);
+    numCards = floor(Random() * MAX_DECK);
+    G.deckCount[p] = numCards - floor(Random() * MAX_DECK);
+    G.discardCount[p] = floor(Random() * (numCards - G.deckCount[p]));
+    G.handCount[p] = numCards - G.deckCount[p] - G.discardCount[p];
+    G.numActions = floor(Random() * 100);
+    if(G.handCount[p] < 1){
+        G.handCount[p] = 1;
+        if(G.discardCount[p] < 1)
+            G.discardCount[p]--;
+        else 
+            G.deckCount[p]--;
+    }
     G.playedCardCount = 0;
     for(i = 0; i < G.deckCount[p]; i++){
         G.deck[p][i] = floor(Random() * treasure_map);
@@ -30,16 +66,16 @@ int main(){
     }
 
     for(i = 0; i < G.handCount[p]; i++){
-      if(village == drawCard(p, &G)){
-        villageFlag = 1;
+      if(smithy == drawCard(p, &G)){
+        smithyFlag = 1;
       }
     }
 
-    if(!villageFlag){
+    if(!smithyFlag){
       i = floor(Random() * G.handCount[p]);
-      G.hand[p][i] = village;
+      G.hand[p][i] = smithy;
     }
-    checkVillage(p, &G);
+    checksmithy(p, &G);
   }
 
   printf ("ALL TESTS OK\n");
