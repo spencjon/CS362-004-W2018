@@ -45,8 +45,14 @@ testGreatHallCard: cardtest1.c assertDominionTest.o dominion.o rngs.o
 testVillageCard: cardtest1.c assertDominionTest.o dominion.o rngs.o
 	gcc -o testVillageCard -g cardtest4.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
-randomtestAdventurer: randomtestadventurer.c assertDominionTest.o dominion.o rngs.o
+randomTestAdventurer: randomtestadventurer.c assertDominionTest.o dominion.o rngs.o
 	gcc -o randTestAdventurer -g randomtestadventurer.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
+
+randomTestVillage: randomtestvillage.c assertDominionTest.o dominion.o rngs.o
+	gcc -o randomTestVillage -g randomtestvillage.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
+
+randomTestSmithy: randomtestsmithy.c  assertDominionTest.o dominion.o rngs.o
+	gcc -o randomTestSmithy -g randomtestsmithy.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
 #testAll: dominion.o testSuite.c
 #	gcc -o testSuite testSuite.c -g  dominion.o rngs.o $(CFLAGS)
