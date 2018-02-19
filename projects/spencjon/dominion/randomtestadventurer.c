@@ -15,9 +15,11 @@ int checkAdventurer(int p, struct gameState *post){
   printf("Going into setup\n");
   memcpy(&pre, post, sizeof(struct gameState));
   printf("Going into setup\n");
-
   for(i = 0; i < pre.handCount[p]; i++){
+    printf("Testing for adventurer\n");
+    r = -50;
     if(pre.hand[p][i] == adventurer){
+      printf("Found Card \n");
       r = adventurer_effect(post, p, i);
       handPos = i;
       break;
