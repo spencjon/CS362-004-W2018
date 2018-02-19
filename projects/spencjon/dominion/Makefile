@@ -48,11 +48,11 @@ testVillageCard: cardtest1.c assertDominionTest.o dominion.o rngs.o
 randomTestAdventurer: randomtestadventurer.c assertDominionTest.o dominion.o rngs.o
 	gcc -o randomTestAdventurer -g randomtestadventurer.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
-randomTestVillage: randomtestvillage.c assertDominionTest.o dominion.o rngs.o
-	gcc -o randomTestVillage -g randomtestvillage.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
+randomTestVillage: randomtestcard1.c assertDominionTest.o dominion.o rngs.o
+	gcc -o randomtestcard1 -g randomtestcard1.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
-randomTestSmithy: randomtestsmithy.c  assertDominionTest.o dominion.o rngs.o
-	gcc -o randomTestSmithy -g randomtestsmithy.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
+randomTestSmithy: randomtestcard2.c  assertDominionTest.o dominion.o rngs.o
+	gcc -o randomtestcard2 -g randomtestcard2.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
 #testAll: dominion.o testSuite.c
 #	gcc -o testSuite testSuite.c -g  dominion.o rngs.o $(CFLAGS)
@@ -94,13 +94,13 @@ runrandtests: randomTestAdventurer randomTestVillage randomTestSmithy
 	gcov dominion.c
 	cat dominion.c.gcov >> randomtestadventurer.out
 	rm -f dominion.c.gcov
-	./randomTestVillage &> randomtestvillage.out
+	./randomtestcard1 &> randomtestcard1.out
 	gcov dominion.c
-	cat dominion.c.gcov >> randomtestadventurer.out
+	cat dominion.c.gcov >> randomtestcard1.out
 	rm -f dominion.c.gcov
-	./randomTestSmithy &> randomtestsmithy.out
+	./randomtestcard2 &> randomtestcard2.out
 	gcov dominion.c
-	cat dominion.c.gcov >> randomtestsmithy.out
+	cat dominion.c.gcov >> randomtestcard2.out
 	rm -f dominion.c.gcov
 
 player: player.c interface.o
