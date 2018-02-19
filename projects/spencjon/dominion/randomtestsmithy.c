@@ -27,14 +27,14 @@ void copyGame(struct gameState *dst, struct gameState *src){
   dst->numBuys = src->numBuys; /* Starts at 1 each turn */
   for(i = 0; i < src->numPlayers; i++){
     dst->handCount[i] = src->handCount[i];
-    for(j = 0; j < src->handCound[i]; j++)
+    for(j = 0; j < src->handCount[i]; j++)
         dst->hand[i][j] = src->hand[i][j];
   }
   for(i = 0; i < src->numPlayers; i++){
     dst->handCount[i] = src->handCount[i];
     dst->deckCount[i] = src->deckCount[i];
     dst->discardCount[i] = src->discardCount[i];
-    for(j = 0; j < src->handCound[i]; j++)
+    for(j = 0; j < src->handCount[i]; j++)
         dst->hand[i][j] = src->hand[i][j];
     for(j = 0; j < src->deckCount[i]; j++)
         dst->deck[i][j] = src->deck[i][j];        
@@ -42,7 +42,7 @@ void copyGame(struct gameState *dst, struct gameState *src){
         dst->discard[i][j] = src->discard[i][j];
   }
   dst->playedCardCount = src->playedCardCount;
-  for(i = 0; i < src->playedCardCount)
+  for(i = 0; i < src->playedCardCount; i++)
     dst->playedCards[i] = src->playedCards[i];
 }
 
@@ -64,7 +64,7 @@ int checkSmithy(int p, struct gameState *post){
     return 0;
   }
     //printf("handCount: %i  %i Deck count: %i %i\n", pre.handCount[p], post->handCount[p], (pre.discardCount[p] + pre.deckCount[p]), (post->discardCount[p] + post->deckCount[p]));
-   // assertStandardDom(r <= 0, "smithy Returned more than 0");
+   assertStandardDom(r <= 0, "smithy Returned more than 0");
    // assertStandardDom(post->handCount[p]==(pre.handCount[p] + 2),"rand smithy: Hand Count incorrect");
   
   return 0;
