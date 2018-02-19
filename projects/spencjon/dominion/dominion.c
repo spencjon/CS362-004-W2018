@@ -1244,15 +1244,17 @@ int adventurer_effect(struct gameState *state, int currentPlayer, int handPos){
     int drawntreasure=0;
     printf("Inside Adventurer %i\n", drawntreasure);
     while(drawntreasure<2){
-        printf("Inside Adventurer %i\n", drawntreasure);
         if (state->deckCount[currentPlayer] <2){//if the deck is empty we need to shuffle discard and add to deck
             shuffle(currentPlayer, state);
         }
         drawCard(currentPlayer, state);
         printf("DrawCard \n");
         cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];//top card of hand is most recently drawn card.
-        if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
+        if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold){
             drawntreasure++;
+            printf("Inside Adventurer after %i\n", drawntreasure);
+
+        }
         else{
             temphand[z]=cardDrawn;
             state->handCount[currentPlayer]--; //this should just remove the top card (the most recently drawn one).
