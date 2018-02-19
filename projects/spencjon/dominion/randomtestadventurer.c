@@ -93,6 +93,7 @@ int main(){
     G.deckCount[p] = floor(Random() * MAX_DECK);
     G.discardCount[p] = floor(Random() * MAX_DECK);
     G.handCount[p] = floor(Random() * MAX_HAND);
+    G.playedCardCount = 0;
     //G.deck = (int**)malloc((p+1) *sizeof(int*));
     //G.deck[p] = (int**)malloc(MAX_DECK * sizeof(int)); 
 
