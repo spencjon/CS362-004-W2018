@@ -48,7 +48,7 @@ int main(){
     G.discardCount[p] = floor(Random() * (numCards - G.deckCount[p]));
     G.handCount[p] = numCards - G.deckCount[p] - G.discardCount[p];
     G.numActions = floor(Random() * 100);
-    printf("INITIAL: nc: %i dec: %i dic: %i hc: %i na: %i\n",numCards, G.deckCount[p], G.discardCount[p],G.handCount[p],G.numActions );
+    //printf("INITIAL: nc: %i dec: %i dic: %i hc: %i na: %i\n",numCards, G.deckCount[p], G.discardCount[p],G.handCount[p],G.numActions );
     if(G.handCount[p] < 1){
         G.handCount[p] = 1;
         if(G.discardCount[p] < 1)
@@ -77,7 +77,8 @@ int main(){
     }
     memcpy(&R, &G, sizeof(struct gameState));
     checkSmithy(p, &G);
-  
+    fflush(stdout);
+    fflush(stdin);
     printf("handCount: %i  %i Deck count: %i %i\n", R.handCount[p], G.handCount[p], (R.discardCount[p] + R.deckCount[p]), (G.discardCount[p] + G.deckCount[p]));
     
   }
