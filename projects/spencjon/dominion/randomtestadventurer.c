@@ -82,7 +82,7 @@ int checkAdventurer(int p, struct gameState *post){
 
 int main(){
 
-  int i, n, p, adventurerFlag = 0;
+  int i, n, p, numCards, adventurerFlag = 0;
   struct gameState G;
 
   printf ("Testing adventurer effect.\n");
@@ -92,9 +92,9 @@ int main(){
   for (n = 0; n < 2000; n++) {
     printf("%i)", n);
     p = floor(Random() * MAX_PLAYERS);
-    numCards = floor(Random() * MAX_DECK)
+    numCards = floor(Random() * MAX_DECK);
     G.deckCount[p] = numCards - floor(Random() * MAX_DECK);
-    G.discardCount[p] = floor(Random() * (numCards - G.deckCount[p]);
+    G.discardCount[p] = floor(Random() * (numCards - G.deckCount[p]));
     G.handCount[p] = numCards - G.deckCount[p] - G.discardCount[p];
     if(G.handCount[p] < 1){
         G.handCount[p] = 1;
