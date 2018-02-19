@@ -46,7 +46,7 @@ int main(){
   for (n = 0; n < 2000; n++) {
     p = floor(Random() * MAX_PLAYERS);
     numCards = floor(Random() * MAX_DECK);
-    G.deckCount[p] = numCards - floor(Random() * MAX_DECK);
+    G.deckCount[p] = numCards - floor(Random() * numCards);
     G.discardCount[p] = floor(Random() * (numCards - G.deckCount[p]));
     G.handCount[p] = numCards - G.deckCount[p] - G.discardCount[p];
     G.numActions = floor(Random() * 100);

@@ -93,7 +93,7 @@ int main(){
     printf("%i)\n", n);
     p = floor(Random() * MAX_PLAYERS);
     numCards = floor(Random() * MAX_DECK);
-    G.deckCount[p] = numCards - floor(Random() * MAX_DECK);
+    G.deckCount[p] = numCards - floor(Random() * numCards);
     G.discardCount[p] = floor(Random() * (numCards - G.deckCount[p]));
     G.handCount[p] = numCards - G.deckCount[p] - G.discardCount[p];
     if(G.handCount[p] < 1){
