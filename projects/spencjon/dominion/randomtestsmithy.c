@@ -9,10 +9,6 @@
 
 
 /*
-
-
-
-
 void copyGame(struct gameState *dst, struct gameState *src){
   int i, j;
   
@@ -104,7 +100,6 @@ int main(){
         else 
             G.deckCount[p]--;
     }
-    G.playedCardCount = 0;
     for(i = 0; i < G.deckCount[p]; i++){
         G.deck[p][i] = floor(Random() * treasure_map);
     }

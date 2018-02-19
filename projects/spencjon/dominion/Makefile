@@ -46,7 +46,7 @@ testVillageCard: cardtest1.c assertDominionTest.o dominion.o rngs.o
 	gcc -o testVillageCard -g cardtest4.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
 randomTestAdventurer: randomtestadventurer.c assertDominionTest.o dominion.o rngs.o
-	gcc -o randTestAdventurer -g randomtestadventurer.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
+	gcc -o randomTestAdventurer -g randomtestadventurer.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
 
 randomTestVillage: randomtestvillage.c assertDominionTest.o dominion.o rngs.o
 	gcc -o randomTestVillage -g randomtestvillage.c assertDominionTest.o dominion.o rngs.o $(CFLAGS)
@@ -89,7 +89,19 @@ runtests: testDiscardCard testNumHandCards testSupplyCount testIsGameOver testSm
 	cat dominion.c.gcov >> unittestresult.out
 
 	#Large file
-
+runrandtests: randomTestAdventurer randomTestVillage randomTestSmithy
+	./randomTestAdventurer &> randomtestadventurer.out
+	gcov dominion.c
+	cat dominion.c.gcov >> randomtestadventurer.out
+	rm -f dominion.c.gcov
+	./randomTestVillage &> randomtestvillage.out
+	gcov dominion.c
+	cat dominion.c.gcov >> randomtestadventurer.out
+	rm -f dominion.c.gcov
+	./randomTestSmithy &> randomtestsmithy.out
+	gcov dominion.c
+	cat dominion.c.gcov >> randomtestsmithy.out
+	rm -f dominion.c.gcov
 
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
