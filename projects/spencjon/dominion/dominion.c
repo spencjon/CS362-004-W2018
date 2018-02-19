@@ -1131,6 +1131,7 @@ int discardCard(int handPos, int currentPlayer, struct gameState *state, int tra
       state->playedCards[state->playedCardCount] = state->hand[currentPlayer][handPos]; 
       state->playedCardCount++;
     }
+  printf("IN Discard\n");
 	
   //set played card to -1
   state->hand[currentPlayer][handPos] = -1;
