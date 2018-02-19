@@ -36,7 +36,7 @@ int checkVillage(int p, struct gameState *post){
 
 int main(){
 
-  int i, n, p, i, numCards, villageFlag = 0;
+  int i, n, p, j, numCards, villageFlag = 0;
   struct gameState G;
 
   printf ("Testing village effect.\n");
