@@ -1154,6 +1154,7 @@ int discardCard(int handPos, int currentPlayer, struct gameState *state, int tra
       //reduce number of cards in hand
       state->handCount[currentPlayer]--;
     }
+    printf("Finished Discard\n");
 	
   return 0;
 }
@@ -1253,7 +1254,6 @@ int adventurer_effect(struct gameState *state, int currentPlayer, int handPos){
         if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold){
             drawntreasure++;
             printf("Inside Adventurer after %i\n", drawntreasure);
-
         }
         else{
             temphand[z]=cardDrawn;
