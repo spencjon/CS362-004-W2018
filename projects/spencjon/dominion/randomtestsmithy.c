@@ -103,17 +103,14 @@ int main(){
         else 
             G.deckCount[p]--;
     }
-    printf("1: nc: %i dec: %i dic: %i hc: %i na: %i\n",numCards, G.deckCount[p], G.discardCount[p],G.handCount[p],G.numActions );
 
     for(i = 0; i < G.deckCount[p]; i++){
         G.deck[p][i] = floor(Random() * treasure_map);
     }
-    printf("2: nc: %i dec: %i dic: %i hc: %i na: %i\n",numCards, G.deckCount[p], G.discardCount[p],G.handCount[p],G.numActions );
 
     for(i = 0; i < G.discardCount[p]; i++){
       G.discard[p][i] = floor(Random() * treasure_map);
     }
-    printf("3: nc: %i dec: %i dic: %i hc: %i na: %i\n",numCards, G.deckCount[p], G.discardCount[p],G.handCount[p],G.numActions );
 
     for(i = 0; i < G.handCount[p]; i++){
       j = floor(Random() * (treasure_map+1));
@@ -122,16 +119,13 @@ int main(){
         smithyFlag = 1;
       }
     }
-    printf("4: nc: %i dec: %i dic: %i hc: %i na: %i\n",numCards, G.deckCount[p], G.discardCount[p],G.handCount[p],G.numActions );
 
     G.playedCardCount = 0;
     if(!smithyFlag){
       i = floor(Random() * G.handCount[p]);
       G.hand[p][i] = smithy;
     }
-    printf("Before: nc: %i dec: %i dic: %i hc: %i na: %i\n",numCards, G.deckCount[p], G.discardCount[p],G.handCount[p],G.numActions );
     checkSmithy(p, &G);
-    printf("After: nc: %i dec: %i dic: %i hc: %i na: %i\n",numCards, G.deckCount[p], G.discardCount[p],G.handCount[p],G.numActions );
 
   }
 
