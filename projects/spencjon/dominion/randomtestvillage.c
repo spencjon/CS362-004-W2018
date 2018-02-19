@@ -9,7 +9,7 @@
 
 int checkVillage(int p, struct gameState *post){
     struct gameState pre;
-  int r, i, handPos = -50;
+  int r, i;
 
   //printf("Going into setup\n");
   memcpy(&pre, post, sizeof(struct gameState));
@@ -19,7 +19,6 @@ int checkVillage(int p, struct gameState *post){
     if(pre.hand[p][i] == village){
       //printf("Found Card \n");
       r = village_effect(p, post, i);
-      handPos = i;
       break;
     }
   }  
@@ -47,9 +46,9 @@ int main(){
 
   for (n = 0; n < 2000; n++) {
     p = floor(Random() * MAX_PLAYERS);
-    numCards = floor(Random() * MAX_DECK)
+    numCards = floor(Random() * MAX_DECK);
     G.deckCount[p] = numCards - floor(Random() * MAX_DECK);
-    G.discardCount[p] = floor(Random() * (numCards - G.deckCount[p]);
+    G.discardCount[p] = floor(Random() * (numCards - G.deckCount[p]));
     G.handCount[p] = numCards - G.deckCount[p] - G.discardCount[p];
     if(G.handCount[p] < 1){
         G.handCount[p] = 1;
