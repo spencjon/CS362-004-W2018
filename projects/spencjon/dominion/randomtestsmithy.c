@@ -78,7 +78,7 @@ int checkSmithy(int p, struct gameState *post){
 
 int main(){
 
-  int i, n, p, numCards, smithyFlag = 0;
+  int i, n, p,j, numCards, smithyFlag = 0;
   struct gameState G;
 
   printf ("Testing smithy effect.\n");
@@ -116,7 +116,9 @@ int main(){
     printf("3: nc: %i dec: %i dic: %i hc: %i na: %i\n",numCards, G.deckCount[p], G.discardCount[p],G.handCount[p],G.numActions );
 
     for(i = 0; i < G.handCount[p]; i++){
-      if(smithy == drawCard(p, &G)){
+      j = floor(Random() * (treasure_map+1));
+      G.hand[p][i]=j;
+      if(smithy == j){
         smithyFlag = 1;
       }
     }
