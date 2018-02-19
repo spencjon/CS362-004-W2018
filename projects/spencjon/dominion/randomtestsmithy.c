@@ -49,7 +49,7 @@ int main(){
     G.discardCount[p] = floor(Random() * (numCards - G.deckCount[p]));
     G.handCount[p] = numCards - G.deckCount[p] - G.discardCount[p];
     G.numActions = floor(Random() * 100);
-    printf("INITIAL: nc: %i dec: %i dic: %i hc: %i na: %i",numCards, G.deckCount[p], G.discardCount[p],G.handCount[p],G.numActions );
+    printf("INITIAL: nc: %i dec: %i dic: %i hc: %i na: %i\n",numCards, G.deckCount[p], G.discardCount[p],G.handCount[p],G.numActions );
     if(G.handCount[p] < 1){
         G.handCount[p] = 1;
         if(G.discardCount[p] < 1)
