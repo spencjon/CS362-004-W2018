@@ -24,7 +24,7 @@ int checkAdventurer(int p, struct gameState *post){
       break;
     }
   }  
-  printf("Past setup\n");
+  //printf("Past setup\n");
   if(pre.handCount[p] == 0){
     return 0;
   }
@@ -63,6 +63,7 @@ int checkAdventurer(int p, struct gameState *post){
       postHandTreasure++;
     }
   }
+
   //printf("Past %s \n", "posthand num treasuer");
 
   if(numTreasure > 1){
@@ -76,6 +77,8 @@ int checkAdventurer(int p, struct gameState *post){
   }else{
     assertStandardDom((pre.handCount[p]-1) == post->handCount[p], "Hand Counts inequal, no treasure.");
   }
+
+  printf("\n\n");
   return 0;
 }
 
