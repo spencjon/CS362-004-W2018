@@ -52,14 +52,14 @@ int checkAdventurer(int p, struct gameState *post){
   preHandTreasure = 0;
   postHandTreasure = 0;
   for(i = 0; i < pre.handCount[p]; i++){
-    if(pre.hand[p][i] == adventurer){
+    if(pre.hand[p][i] == copper || pre.hand[p][i] == silver || pre.hand[p][i] == gold){
       preHandTreasure++;
     }
   }
   //printf("Past %s \n", "prehand num treasuer");
 
   for(i = 0; i < post->handCount[p]; i++){
-    if(post->hand[p][i] == adventurer){
+    if(post->hand[p][i] == copper || post->hand[p][i] == silver || post->hand[p][i] == gold){
       postHandTreasure++;
     }
   }
