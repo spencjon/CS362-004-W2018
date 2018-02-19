@@ -7,6 +7,45 @@
 #include "rngs.h"
 #include <math.h>
 
+
+void copyGame(struct gameState *dst, struct gameState *src){
+  int i, j;
+  
+  dst->numPlayers = src->numPlayers; //number of players
+  
+  for(i = 0; i <= treasure_map; i++){
+    dst->supplyCount[i] = src->supplyCount[i];  //this is the amount of a specific type of card given a specific number.
+    dst->embargoTokens[i] = src->supplyCount[i];
+  }
+  
+  dst->outpostPlayed = src->outpostPlayed;
+  dst->outpostTurn = src->outpostTurn;
+  dst->whoseTurn = src->whoseTurn;
+  dst->phase = src->phase;
+  dst->numActions = src->numActions; /* Starts at 1 each turn */
+  dst->coins = src->coins; /* Use as you see fit! */
+  dst->numBuys = src->numBuys; /* Starts at 1 each turn */
+  for(i = 0; i < src->numPlayers; i++){
+    dst->handCount[i] = src->handCount[i];
+    for(j = 0; j < src->handCound[i]; j++)
+        dst->hand[i][j] = src->hand[i][j];
+  }
+  for(i = 0; i < src->numPlayers; i++){
+    dst->handCount[i] = src->handCount[i];
+    dst->deckCount[i] = src->deckCount[i];
+    dst->discardCount[i] = src->discardCount[i];
+    for(j = 0; j < src->handCound[i]; j++)
+        dst->hand[i][j] = src->hand[i][j];
+    for(j = 0; j < src->deckCount[i]; j++)
+        dst->deck[i][j] = src->deck[i][j];        
+    for(j = 0; j < src->discardCount[i]; j++)
+        dst->discard[i][j] = src->discard[i][j];
+  }
+  dst->playedCardCount = src->playedCardCount;
+  for(i = 0; i < src->playedCardCount)
+    dst->playedCards[i] = src->playedCards[i];
+}
+
 int checkSmithy(int p, struct gameState *post){
   struct gameState pre;
   int r, i;
@@ -79,7 +118,7 @@ int main(){
     }
     printf("handCount: %i  %i Deck count: %i %i\n", R.handCount[p], G.handCount[p], (R.discardCount[p] + R.deckCount[p]), (G.discardCount[p] + G.deckCount[p]));
 
-    memcpy(&R, &G, sizeof(struct gameState));
+    copyGame(&R, &G);
     checkSmithy(p, &G);
     fflush(stdout);
     fflush(stdin);
@@ -91,3 +130,4 @@ int main(){
 
   return 0;
 }
+
