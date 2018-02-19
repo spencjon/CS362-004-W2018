@@ -72,10 +72,10 @@ int checkAdventurer(int p, struct gameState *post){
     assertStandardDom((((pre.handCount[p]) + 2) == (post->handCount[p])), "Hand count incorrect: enough treasure.");
     assertStandardDom(((postHandTreasure - 2) == preHandTreasure), "Incorrect Number of pre/post hand treasure delta");
   } else if(numTreasure == 1){
-    assertStandardDom(pre.handCount[p] == post->handCount[p], "Hand count incorrect: one treasure.");
+    assertStandardDom((pre.handCount[p] == post->handCount[p]), "Hand count incorrect: one treasure.");
     assertStandardDom(((postHandTreasure - 1) == preHandTreasure), "Incorrect Number of pre/post hand treasure delta");
   }else{
-    assertStandardDom((pre.handCount[p]-1) == post->handCount[p], "Hand count incorrect: no treasure.");
+    assertStandardDom(((pre.handCount[p]-1) == post->handCount[p]), "Hand count incorrect: no treasure.");
   }
   return 0;
 }
