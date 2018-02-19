@@ -92,10 +92,17 @@ int main(){
   for (n = 0; n < 2000; n++) {
     printf("%i)", n);
     p = floor(Random() * MAX_PLAYERS);
-    G.deckCount[p] = floor(Random() * MAX_DECK);
-    G.discardCount[p] = floor(Random() * MAX_DECK);
-    G.handCount[p] = floor(Random() * MAX_HAND);
-    G.playedCardCount = 0;
+    numCards = floor(Random() * MAX_DECK)
+    G.deckCount[p] = numCards - floor(Random() * MAX_DECK);
+    G.discardCount[p] = floor(Random() * (numCards - G.deckCount[p]);
+    G.handCount[p] = numCards - G.deckCount[p] - G.discardCount[p];
+    if(G.handCount[p] < 1){
+        G.handCount[p] = 1;
+        if(G.discardCount[p] < 1)
+            G.discardCount[p]--;
+        else 
+            G.deckCount[p]--;
+    }
     //G.deck = (int**)malloc((p+1) *sizeof(int*));
     //G.deck[p] = (int**)malloc(MAX_DECK * sizeof(int)); 
 
