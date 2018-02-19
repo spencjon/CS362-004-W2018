@@ -77,8 +77,6 @@ int checkAdventurer(int p, struct gameState *post){
   }else{
     assertStandardDom((pre.handCount[p]-1) == post->handCount[p], "Hand Counts inequal, no treasure.");
   }
-
-  printf("\n\n");
   return 0;
 }
 
@@ -92,6 +90,7 @@ int main(){
   printf ("RANDOM TESTS.\n");
 
   for (n = 0; n < 2000; n++) {
+    printf("%i)", n);
     p = floor(Random() * MAX_PLAYERS);
     G.deckCount[p] = floor(Random() * MAX_DECK);
     G.discardCount[p] = floor(Random() * MAX_DECK);
