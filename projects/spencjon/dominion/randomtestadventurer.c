@@ -29,7 +29,7 @@ int checkAdventurer(int p, struct gameState *post){
     return 0;
   }
   if(handPos == -50){
-    printf("No Adventurer\n");
+    //printf("No Adventurer\n");
     return 0;
   }
   //printf("Past %s \n", "incompatible arguments");
@@ -70,12 +70,12 @@ int checkAdventurer(int p, struct gameState *post){
     //printf("HandCount Post: %i, Pre %i \n",post->handCount[p],pre.handCount[p]);
     //printf("TreasureDelta: Post %i, PRe %i \n", postHandTreasure, preHandTreasure);
     assertStandardDom((((pre.handCount[p]) + 2) == (post->handCount[p])), "Hand count incorrect: enough treasure.");
-    assertStandardDom(((postHandTreasure - 1) == preHandTreasure), "Incorrect Number of pre/post hand treasure delta");
+    assertStandardDom(((postHandTreasure - 2) == preHandTreasure), "Incorrect Number of pre/post hand treasure delta");
   } else if(numTreasure == 1){
-    assertStandardDom(pre.handCount[p] == post->handCount[p], "Hand count incorrect: one treasure.");
+    assertStandardDom((pre.handCount[p] == post->handCount[p]), "Hand count incorrect: one treasure.");
     assertStandardDom(((postHandTreasure - 1) == preHandTreasure), "Incorrect Number of pre/post hand treasure delta");
   }else{
-    assertStandardDom((pre.handCount[p]-1) == post->handCount[p], "Hand count incorrect: no treasure.");
+    assertStandardDom(((pre.handCount[p]-1) == post->handCount[p]), "Hand count incorrect: no treasure.");
   }
   return 0;
 }
