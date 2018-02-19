@@ -36,7 +36,7 @@ int checkVillage(int p, struct gameState *post){
 
 int main(){
 
-  int i, n, p, numCards, villageFlag = 0;
+  int i, n, p, i, numCards, villageFlag = 0;
   struct gameState G;
 
   printf ("Testing village effect.\n");
@@ -67,7 +67,9 @@ int main(){
     }
 
     for(i = 0; i < G.handCount[p]; i++){
-      if(village == drawCard(p, &G)){
+      j = floor(Random() * (treasure_map+1));
+      G.hand[p][i]=j;
+      if(village == j){
         villageFlag = 1;
       }
     }

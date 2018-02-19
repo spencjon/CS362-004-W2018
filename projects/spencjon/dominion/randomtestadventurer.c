@@ -82,7 +82,7 @@ int checkAdventurer(int p, struct gameState *post){
 
 int main(){
 
-  int i, n, p, numCards, adventurerFlag = 0;
+  int i, j, n, p, numCards, adventurerFlag = 0;
   struct gameState G;
 
   printf ("Testing adventurer effect.\n");
@@ -119,7 +119,9 @@ int main(){
     //G.hand[p] = (int**)malloc(MAX_HAND * sizeof(int)); 
 
     for(i = 0; i < G.handCount[p]; i++){
-      if(adventurer == drawCard(p, &G)){
+      j = floor(Random() * (treasure_map+1));
+      G.hand[p][i]=j;
+      if(adventurer == j){
         adventurerFlag = 1;
       }
     }
