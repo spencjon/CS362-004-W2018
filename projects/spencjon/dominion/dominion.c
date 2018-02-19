@@ -1261,7 +1261,6 @@ int adventurer_effect(struct gameState *state, int currentPlayer , int handPos){
         state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[z-1]; // discard all cards in play that have been drawn
         z=z-1;
     }
-    discardCard(handPos, currentPlayer, state, 0);
     return 0;
 }
 
