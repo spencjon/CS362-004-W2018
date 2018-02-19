@@ -1124,6 +1124,7 @@ int discardCard(int handPos, int currentPlayer, struct gameState *state, int tra
 {
 	
   //if card is not trashed, added to Played pile 
+  printf("IN Discard\n");
   if (trashFlag < 1)
     {
       //add card to played pile
@@ -1133,7 +1134,8 @@ int discardCard(int handPos, int currentPlayer, struct gameState *state, int tra
 	
   //set played card to -1
   state->hand[currentPlayer][handPos] = -1;
-	
+  printf("IN Discard\n");
+
   //remove card from player's hand
   if ( handPos == (state->handCount[currentPlayer] - 1) ) 	//last card in hand array is played
     {
