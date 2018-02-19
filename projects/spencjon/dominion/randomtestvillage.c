@@ -25,7 +25,7 @@ int checkVillage(int p, struct gameState *post){
   if(pre.handCount[p] == 0){
     return 0;
   }
-    printf("handCount: %i  %i, numActions: %i %i\n", pre.handCount[p], post->handCount[p], pre.numActions, )
+    printf("handCount: %i  %i, numActions: %i %i\n", pre.handCount[p], post->handCount[p], pre.numActions, post->numActions);
     assertStandardDom(r == 0, "village Returned not 0");
     assertStandardDom(post->handCount[p]==pre.handCount[p],"rand village: Hand Count incorrect");
     assertStandardDom((pre.numActions+1) == post->numActions, "rand village: number of actions incorrect");
