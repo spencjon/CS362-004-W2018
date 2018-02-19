@@ -27,9 +27,9 @@ void copyGame(struct gameState *dst, struct gameState *src){
   dst->outpostTurn = src->outpostTurn;
   dst->whoseTurn = src->whoseTurn;
   dst->phase = src->phase;
-  dst->numActions = src->numActions; /* Starts at 1 each turn 
-  dst->coins = src->coins; /* Use as you see fit! 
-  dst->numBuys = src->numBuys; /* Starts at 1 each turn 
+  dst->numActions = src->numActions;  Starts at 1 each turn 
+  dst->coins = src->coins;  Use as you see fit! 
+  dst->numBuys = src->numBuys;  Starts at 1 each turn 
   for(i = 0; i < src->numPlayers; i++){
     dst->handCount[i] = src->handCount[i];
     for(j = 0; j < src->handCount[i]; j++)
@@ -96,7 +96,7 @@ int main(){
     G.discardCount[p] = floor(Random() * (numCards - G.deckCount[p]));
     G.handCount[p] = numCards - G.deckCount[p] - G.discardCount[p];
     G.numActions = floor(Random() * 100);
-    printf("INITIAL: nc: %i dec: %i dic: %i hc: %i na: %i",numCards, G.deckCount[p], G.discardCount[p],G.handCount[p],G.numActions );
+    printf("INITIAL: nc: %i dec: %i dic: %i hc: %i na: %i\n",numCards, G.deckCount[p], G.discardCount[p],G.handCount[p],G.numActions );
     if(G.handCount[p] < 1){
         G.handCount[p] = 1;
         if(G.discardCount[p] < 1)
