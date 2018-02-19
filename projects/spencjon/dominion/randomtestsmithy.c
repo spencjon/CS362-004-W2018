@@ -103,19 +103,25 @@ int main(){
         else 
             G.deckCount[p]--;
     }
+    printf("1: nc: %i dec: %i dic: %i hc: %i na: %i\n",numCards, G.deckCount[p], G.discardCount[p],G.handCount[p],G.numActions );
+
     for(i = 0; i < G.deckCount[p]; i++){
         G.deck[p][i] = floor(Random() * treasure_map);
     }
+    printf("2: nc: %i dec: %i dic: %i hc: %i na: %i\n",numCards, G.deckCount[p], G.discardCount[p],G.handCount[p],G.numActions );
 
     for(i = 0; i < G.discardCount[p]; i++){
       G.discard[p][i] = floor(Random() * treasure_map);
     }
+    printf("3: nc: %i dec: %i dic: %i hc: %i na: %i\n",numCards, G.deckCount[p], G.discardCount[p],G.handCount[p],G.numActions );
 
     for(i = 0; i < G.handCount[p]; i++){
       if(smithy == drawCard(p, &G)){
         smithyFlag = 1;
       }
     }
+    printf("4: nc: %i dec: %i dic: %i hc: %i na: %i\n",numCards, G.deckCount[p], G.discardCount[p],G.handCount[p],G.numActions );
+
     G.playedCardCount = 0;
     if(!smithyFlag){
       i = floor(Random() * G.handCount[p]);
