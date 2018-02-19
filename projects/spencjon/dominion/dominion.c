@@ -1248,6 +1248,7 @@ int adventurer_effect(struct gameState *state, int currentPlayer, int handPos){
             shuffle(currentPlayer, state);
         }
         drawCard(currentPlayer, state);
+        printf("DrawCard \n");
         cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];//top card of hand is most recently drawn card.
         if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
             drawntreasure++;
@@ -1257,10 +1258,12 @@ int adventurer_effect(struct gameState *state, int currentPlayer, int handPos){
             z++;
         }
     }
+    
     while(z-1>=0){
         state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[z-1]; // discard all cards in play that have been drawn
         z=z-1;
     }
+    printf("Discard Card \n");
     discardCard(handPos, currentPlayer, state, 0);
     return 0;
 }
