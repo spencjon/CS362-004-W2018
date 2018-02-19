@@ -17,7 +17,7 @@ int checkSmithy(int p, struct gameState *post){
     r = -50;
     if(pre.hand[p][i] == smithy){
       //printf("Found Card \n");
-      r = smithy_effect(post, p, i);
+      r = smithy_effect(p, post, i);
       break;
     }
   }  
@@ -75,7 +75,7 @@ int main(){
       i = floor(Random() * G.handCount[p]);
       G.hand[p][i] = smithy;
     }
-    checksmithy(p, &G);
+    checkSmithy(p, &G);
   }
 
   printf ("ALL TESTS OK\n");
