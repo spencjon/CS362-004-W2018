@@ -90,7 +90,7 @@ int main(){
   printf ("RANDOM TESTS.\n");
 
   for (n = 0; n < 2000; n++) {
-    printf("%i)", n);
+    printf("%i)\n", n);
     p = floor(Random() * MAX_PLAYERS);
     numCards = floor(Random() * MAX_DECK);
     G.deckCount[p] = numCards - floor(Random() * MAX_DECK);
