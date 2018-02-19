@@ -1124,21 +1124,16 @@ int discardCard(int handPos, int currentPlayer, struct gameState *state, int tra
 {
 	
   //if card is not trashed, added to Played pile 
-  printf("IN Discard\n");
   if (trashFlag < 1)
     {
       //add card to played pile
-      printf("before\n");
       state->playedCards[state->playedCardCount] = state->hand[currentPlayer][handPos]; 
-      printf("after\n");
       state->playedCardCount++;
     }
-  printf("IN Discard\n");
 	
   //set played card to -1
   state->hand[currentPlayer][handPos] = -1;
-  printf("IN Discard\n");
-
+	
   //remove card from player's hand
   if ( handPos == (state->handCount[currentPlayer] - 1) ) 	//last card in hand array is played
     {
@@ -1159,7 +1154,6 @@ int discardCard(int handPos, int currentPlayer, struct gameState *state, int tra
       //reduce number of cards in hand
       state->handCount[currentPlayer]--;
     }
-    printf("Finished Discard\n");
 	
   return 0;
 }
@@ -1243,35 +1237,30 @@ int smithy_effect(int currentPlayer, struct gameState *state, int handPos){ //dr
     return -1;
 }
 
-int adventurer_effect(struct gameState *state, int currentPlayer, int handPos){
+int adventurer_effect(struct gameState *state, int currentPlayer , int handPos){
     int cardDrawn;
     int temphand[MAX_HAND];
     int z = 0;
     int drawntreasure=0;
-    printf("Inside Adventurer %i\n", drawntreasure);
+    //printf("Inside Adventurer \n");
     while(drawntreasure<2){
         if (state->deckCount[currentPlayer] <2){//if the deck is empty we need to shuffle discard and add to deck
             shuffle(currentPlayer, state);
         }
         drawCard(currentPlayer, state);
-        printf("DrawCard \n");
         cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];//top card of hand is most recently drawn card.
-        if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold){
+        if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
             drawntreasure++;
-            printf("Inside Adventurer after %i\n", drawntreasure);
-        }
         else{
             temphand[z]=cardDrawn;
             state->handCount[currentPlayer]--; //this should just remove the top card (the most recently drawn one).
             z++;
         }
     }
-    
     while(z-1>=0){
         state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[z-1]; // discard all cards in play that have been drawn
         z=z-1;
     }
-    printf("Discard Card \n");
     discardCard(handPos, currentPlayer, state, 0);
     return 0;
 }
