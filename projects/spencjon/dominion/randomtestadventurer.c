@@ -75,7 +75,9 @@ int checkAdventurer(int p, struct gameState *post){
     assertStandardDom(pre.handCount[p] == post->handCount[p], "Hand Counts inequal, one treasure.");
     assertStandardDom(((postHandTreasure - 1) == preHandTreasure), "Incorrect Number of pre/post hand treasure delta");
   }else{
+    printf("************* NO TREASURE %i %i\n", pre.handCount[p], post->handCount[p]);
     assertStandardDom((pre.handCount[p]-1) == post->handCount[p], "Hand Counts inequal, no treasure.");
+    printf("*************\n");
   }
 
   printf("\n\n");
