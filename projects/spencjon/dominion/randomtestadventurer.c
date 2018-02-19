@@ -10,9 +10,8 @@
 int checkAdventurer(int p, struct gameState *post){ 
   struct gameState pre;
   int preHandTreasure, postHandTreasure;
-  fflush(stdout);
-  fflush(stdin);
-  printf("Going into setup");
+  printf("Going into setup\n");
+  
   memcpy (&pre, post, sizeof(struct gameState));
   int r, i, numTreasure, handPos = -50;
   for(i = 0; i < pre.handCount[p]; i++){
