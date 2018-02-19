@@ -9,7 +9,7 @@
 
 int checkSmithy(int p, struct gameState *post){
   struct gameState pre;
-  int r, i;
+  int /*r*/i;
   //printf("Going into setup\n");
   memcpy(&pre, post, sizeof(struct gameState));
  // printf("Going into setup\n");
