@@ -67,7 +67,7 @@ int checkSmithy(int p, struct gameState *post){
   if(pre.handCount[p] == 0){
     return 0;
   }
-    //printf("handCount: %i  %i Deck count: %i %i\n", pre.handCount[p], post->handCount[p], (pre.discardCount[p] + pre.deckCount[p]), (post->discardCount[p] + post->deckCount[p]));
+    printf("handCount: %i  %i Deck count: %i %i\n", pre.handCount[p], post->handCount[p], (pre.discardCount[p] + pre.deckCount[p]), (post->discardCount[p] + post->deckCount[p]));
     assertStandardDom(r <= 0, "smithy Returned more than 0");
     assertStandardDom(post->handCount[p]==(pre.handCount[p] + 2),"rand smithy: Hand Count incorrect");
     assertStandardDom((pre.discardCount[p] + pre.deckCount[p] - 2)  == (post->discardCount[p] + post->deckCount[p]), "rand smithy: incorrect deck/discard counts");
