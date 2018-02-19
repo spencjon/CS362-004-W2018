@@ -8,10 +8,10 @@
 #include <math.h>
 
 int checkSmithy(int p, struct gameState *post){
-  //struct gameState pre;
+  struct gameState pre;
   int r, i;
   //printf("Going into setup\n");
-  //memcpy(&pre, post, sizeof(struct gameState));
+  memcpy(&pre, post, sizeof(struct gameState));
  // printf("Going into setup\n");
   for(i = 0; i < pre.handCount[p]; i++){
     r = -50;
