@@ -1,0 +1,45 @@
+
+
+Bug-Reports
+Bug Report: Smithy Card 	
+Assertion Log: 
+SIMPLE FIXED TESTS: Smithy Card
+Assertion Failed: Hand Count too large after play (Expected +2) (Actual +3)
+Exit? (Y/n):
+Test for numPlayers = 2 has failed
+
+Code Pointer: 
+dominion.c line 675: 
+for (int i = 0; i <= 3; i++)
+{
+    drawCard(currentPlayer, state);
+}
+
+Bug Description: 1 too many cards have been drawn
+
+Outcomes:
+Expected: 2 more cards than before (3 drawn cards minus the discarded Smithy card)
+Actual: 3 more cards
+Interesting/Detail about bug:  I found this bug because of my custom assertions. The Smithy Card is very small, and does not do much. Instead of taking the time to binary search for causality, I just looked at the function where the card draws more cards. It was a simple matter of finding a loop (the only loop there) and making sure it only drew 4 cards and that the function discarded one card. After I fixed the loop to go for 3 draws, the code worked well. 
+
+
+
+Bug Report: Adventurer Card 	
+SIMPLE FIXED TESTS: Adventurer Card
+Assertion Failed: Hand Count too large after play (Expected +1) (Actual +2)
+Exit? (Y/n):
+Test for numPlayers = 2 has failed
+
+Code Pointer: 
+while(drawntreasure<3){
+if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
+    shuffle(currentPlayer, state);
+}
+
+Bug Description: 1 too many cards have been drawn
+
+Outcomes:
+Expected: 1 more cards than before (3 drawn cards minus the discarded Smithy card)
+Actual: 2 more cards
+Interesting/Detail about bug: This bug was found in much the same way as the Smithy Card. I ended up spending less than a minute to find the bug in both, so I would say that the decision of inspection and verification was appropriate. 
+
